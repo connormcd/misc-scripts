@@ -71,8 +71,8 @@ procedure MY_USER.clone_schema(
   l_status       ku$_status; 
   l_state        varchar2(30);
   l_link         varchar2(128);
-  l_job_name     varchar2(128) := upper(p_new)||'_SCHEMA_IMP';
-  l_log_file     varchar2(128) := lower(p_new)||'_import.log';
+  l_job_name     varchar2(128) := upper(p_old)||'_SCHEMA_IMP';
+  l_log_file     varchar2(128) := lower(p_old)||'_import.log';
   l_default_dir  varchar2(128) := 'TEMP';
   rc             sys_refcursor;
   l_msg          varchar2(4000);
@@ -152,7 +152,8 @@ BEGIN
   dbms_datapump.detach(l_handle);
 
   if not p_asynch then
-    open rc for 'select msg from datapump_clone_log external modify ( location ( '''||l_log_file||''' ) )';
+    execute immediate 'alter table datapump_clone_log location ( '''||l_log_file||''' )';
+    open rc for 'select msg from datapump_clone_log';
     loop
       fetch rc into l_msg;
       exit when rc%notfound;
