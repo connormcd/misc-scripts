@@ -1,4 +1,3 @@
-set termout off
 REM
 REM Standard disclaimer - anything in here can be used at your own risk.
 REM 
@@ -8,13 +7,20 @@ REM No warranty or liability etc etc etc. See the license file in the git repo r
 REM
 REM *** USE AT YOUR OWN RISK ***
 REM 
-alter session set nls_date_format = 'DD-MON-RR';
-set autotrace off
-set timing off
-set sqlprompt 'SQL> '
-set echo off
-set feedback on
+
+conn USER/PASSWORD@MY_DB
+set echo on
+drop user demo cascade;
+pause
+create user demo identified by demo;
+grant connect, resource to demo;
+alter user demo quota unlimited on users;
+pause
 clear screen
-set termout on
-set define '&'
-set tab off
+create or replace
+procedure scott.sample_proc is
+begin
+  dbms_output.put_line('Hi there!');
+end;
+/
+exit

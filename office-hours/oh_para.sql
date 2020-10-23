@@ -1,13 +1,23 @@
+REM
+REM Standard disclaimer - anything in here can be used at your own risk.
+REM 
+REM It is very likely you'll need to edit the script for correct usernames/passwords etc.
+REM 
+REM No warranty or liability etc etc etc. See the license file in the git repo root
+REM
+REM *** USE AT YOUR OWN RISK ***
+REM 
+
 set termout off
 set pages 999
 set termout off
 REM
 REM to get multiple files for this demo
 REM
-REM alter tablespace demo add datafile 'X:\ORACLE\ORADATA\DB122\DEMO2.DBF' size 100m;
-REM alter tablespace demo add datafile 'X:\ORACLE\ORADATA\DB122\DEMO3.DBF' size 100m;
-REM alter tablespace demo add datafile 'X:\ORACLE\ORADATA\DB122\DEMO4.DBF' size 100m;
-REM alter tablespace demo add datafile 'X:\ORACLE\ORADATA\DB122\DEMO5.DBF' size 100m;
+REM alter tablespace demo add datafile ...
+REM alter tablespace demo add datafile ...
+REM alter tablespace demo add datafile ...
+REM alter tablespace demo add datafile ...
 drop table t;
 drop table t1;
 drop table rowid_list;
