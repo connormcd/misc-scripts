@@ -1,0 +1,17 @@
+-------------------------------------------------------------------------------
+--
+-- PLEASE NOTE
+-- 
+-- No warranty, no liability, no support.
+--
+-- This script is 100% at your own risk to use.
+--
+-------------------------------------------------------------------------------
+col sql_text format a64
+set lines 200
+col who format a22 trunc
+select sql_text, buffer_gets,  executions, sql_id, elapsed_time
+from v$sqlstats
+where ( elapsed_time / greatest(executions,1)) > 2000000
+order by 2;
+set lines 120
