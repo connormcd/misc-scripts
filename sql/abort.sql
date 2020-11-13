@@ -1,12 +1,2 @@
--------------------------------------------------------------------------------
---
--- PLEASE NOTE
--- 
--- No warranty, no liability, no support.
---
--- This script is 100% at your own risk to use.
---
--------------------------------------------------------------------------------
-conn sys/admin as sysdba
-alter system checkpoint;
-shutdown abort
+The file cannot be copied onto itself.
+        0 file(s) copied.

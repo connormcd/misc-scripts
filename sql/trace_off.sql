@@ -1,18 +1,2 @@
--------------------------------------------------------------------------------
---
--- PLEASE NOTE
--- 
--- No warranty, no liability, no support.
---
--- This script is 100% at your own risk to use.
---
--------------------------------------------------------------------------------
-begin
-for i in ( select sid, serial#
-           from v$session
-           where username in ('...')
-           ) loop
-       dbms_monitor.SESSION_TRACE_DISABLE(i.sid, i.serial#);
-end loop;
-end;
-/
+The file cannot be copied onto itself.
+        0 file(s) copied.
