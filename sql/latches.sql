@@ -1,3 +1,12 @@
+-------------------------------------------------------------------------------
+--
+-- PLEASE NOTE
+-- 
+-- No warranty, no liability, no support.
+--
+-- This script is 100% at your own risk to use.
+--
+-------------------------------------------------------------------------------
 col name form a40 
 col gets form 999,999,999 
 col misses form 999.99 heading "Miss%"

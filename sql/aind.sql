@@ -1,3 +1,12 @@
+-------------------------------------------------------------------------------
+--
+-- PLEASE NOTE
+-- 
+-- No warranty, no liability, no support.
+--
+-- This script is 100% at your own risk to use.
+--
+-------------------------------------------------------------------------------
 set verify off
 col misc format a12
 select  table_name, index_name,distinct_keys, num_rows, clustering_factor, 

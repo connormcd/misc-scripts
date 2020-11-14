@@ -1,3 +1,12 @@
+-------------------------------------------------------------------------------
+--
+-- PLEASE NOTE
+-- 
+-- No warranty, no liability, no support.
+--
+-- This script is 100% at your own risk to use.
+--
+-------------------------------------------------------------------------------
 exec sys.dbms_system.set_ev(&1,&2,10046,nvl('&3',12),'');
 select nvl(TRACEFILE,
   '/u01/app/oracle/diag/rdbms/'||

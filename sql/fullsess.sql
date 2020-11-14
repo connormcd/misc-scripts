@@ -1,3 +1,12 @@
+-------------------------------------------------------------------------------
+--
+-- PLEASE NOTE
+-- 
+-- No warranty, no liability, no support.
+--
+-- This script is 100% at your own risk to use.
+--
+-------------------------------------------------------------------------------
 set termout off
 col p1 new_value 1
 col p2 new_value 2

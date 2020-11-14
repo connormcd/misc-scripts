@@ -1,3 +1,12 @@
+-------------------------------------------------------------------------------
+--
+-- PLEASE NOTE
+-- 
+-- No warranty, no liability, no support.
+--
+-- This script is 100% at your own risk to use.
+--
+-------------------------------------------------------------------------------
 set termout off
 alter session set nls_date_format = 'DD-MON-RR';
 set autotrace off

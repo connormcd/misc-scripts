@@ -1,3 +1,12 @@
+-------------------------------------------------------------------------------
+--
+-- PLEASE NOTE
+-- 
+-- No warranty, no liability, no support.
+--
+-- This script is 100% at your own risk to use.
+--
+-------------------------------------------------------------------------------
 select 'svrmgrl' || chr(10) || 'connect internal' ||chr(10)||'select to_char(sysdate,''hh24:mi:ss'') from dual;'
 from dual
 union all

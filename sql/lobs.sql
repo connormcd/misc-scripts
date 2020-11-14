@@ -1,3 +1,12 @@
+-------------------------------------------------------------------------------
+--
+-- PLEASE NOTE
+-- 
+-- No warranty, no liability, no support.
+--
+-- This script is 100% at your own risk to use.
+--
+-------------------------------------------------------------------------------
  select s.sid, s.serial#,
         decode(s.username,null,to_char(null),
               decode(s.USERNAME,'IMS',nvl2(module||action,action||','||module,'IMS'), s.username)

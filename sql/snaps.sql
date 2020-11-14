@@ -1,3 +1,12 @@
+-------------------------------------------------------------------------------
+--
+-- PLEASE NOTE
+-- 
+-- No warranty, no liability, no support.
+--
+-- This script is 100% at your own risk to use.
+--
+-------------------------------------------------------------------------------
 select di.instance_name                                  inst_name
      , s.snap_id                                         snap_id
      , to_char(s.end_interval_time,'dd Mon YYYY HH24:mi') snapdat

@@ -1,3 +1,12 @@
+-------------------------------------------------------------------------------
+--
+-- PLEASE NOTE
+-- 
+-- No warranty, no liability, no support.
+--
+-- This script is 100% at your own risk to use.
+--
+-------------------------------------------------------------------------------
 col tot_free format a20
 
 select d.tablespace_name, lpad(round(d.tot_size/1024/1024)||'m',10) tot_size, lpad(round(f.tot_free/1024/1024)||'m',10) tot_free, round(100-100*tot_free/tot_size) pct_used

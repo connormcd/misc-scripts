@@ -1,3 +1,12 @@
+-------------------------------------------------------------------------------
+--
+-- PLEASE NOTE
+-- 
+-- No warranty, no liability, no support.
+--
+-- This script is 100% at your own risk to use.
+--
+-------------------------------------------------------------------------------
 SELECT  /*+ ORDERED */ 
         substr(decode(substr(upper(s.action),1,2),'PD',s.action,s.osuser),1,12) osuser,
         S.SID,

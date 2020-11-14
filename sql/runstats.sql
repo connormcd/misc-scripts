@@ -1,3 +1,12 @@
+-------------------------------------------------------------------------------
+--
+-- PLEASE NOTE
+-- 
+-- No warranty, no liability, no support.
+--
+-- This script is 100% at your own risk to use.
+--
+-------------------------------------------------------------------------------
 grant select on SYS.V_$STATNAME to demo;
 grant select on SYS.V_$MYSTAT to demo;
 grant select on SYS.V_$LATCH to demo;

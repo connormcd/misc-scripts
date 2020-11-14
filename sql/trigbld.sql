@@ -1,3 +1,12 @@
+-------------------------------------------------------------------------------
+--
+-- PLEASE NOTE
+-- 
+-- No warranty, no liability, no support.
+--
+-- This script is 100% at your own risk to use.
+--
+-------------------------------------------------------------------------------
 set long 10000
 select 'create or replace '||TRIGGER_NAME||chr(10)||
 replace(replace(trigger_type,'EACH ROW'),'STATEMENT',null)||' '||

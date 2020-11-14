@@ -1,3 +1,12 @@
+-------------------------------------------------------------------------------
+--
+-- PLEASE NOTE
+-- 
+-- No warranty, no liability, no support.
+--
+-- This script is 100% at your own risk to use.
+--
+-------------------------------------------------------------------------------
 set verify off
 select  table_name, constraint_name, ( select table_name from dba_constraints
                                        where constraint_name = d.r_constraint_name

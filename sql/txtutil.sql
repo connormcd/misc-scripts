@@ -1,3 +1,12 @@
+-------------------------------------------------------------------------------
+--
+-- PLEASE NOTE
+-- 
+-- No warranty, no liability, no support.
+--
+-- This script is 100% at your own risk to use.
+--
+-------------------------------------------------------------------------------
 CREATE OR REPLACE  PACKAGE TXTSUP_UTIL AUTHID CURRENT_USER IS
 /*
 Rem      set serveroutput on;

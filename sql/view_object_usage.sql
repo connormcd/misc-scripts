@@ -1,3 +1,12 @@
+-------------------------------------------------------------------------------
+--
+-- PLEASE NOTE
+-- 
+-- No warranty, no liability, no support.
+--
+-- This script is 100% at your own risk to use.
+--
+-------------------------------------------------------------------------------
 create or replace view OBJECT_USAGE as
 select /*+ LEADING(ou) */ io.name index_name, t.name table_name,
        decode(bitand(i.flags, 65536), 0, 'NO', 'YES') monitoring,

@@ -1,3 +1,12 @@
+-------------------------------------------------------------------------------
+--
+-- PLEASE NOTE
+-- 
+-- No warranty, no liability, no support.
+--
+-- This script is 100% at your own risk to use.
+--
+-------------------------------------------------------------------------------
 --undefine sid
 --select lower(d.instance_name) || '_ora_' || ltrim(a.spid) || nvl2(p.value,'_'||p.value,null) || '.trc'
 --from v$session b, v$process a, v$instance d, v$parameter p

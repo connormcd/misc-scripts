@@ -1,3 +1,12 @@
+-------------------------------------------------------------------------------
+--
+-- PLEASE NOTE
+-- 
+-- No warranty, no liability, no support.
+--
+-- This script is 100% at your own risk to use.
+--
+-------------------------------------------------------------------------------
 select 'create index '||owner||'.'||replace(constraint_name,'FK','IF')||' on '||table_name||' ( ' ||
       max(decode(pos,1,column_name))||
       max(decode(pos,2,','||column_name))||

@@ -1,3 +1,12 @@
+-------------------------------------------------------------------------------
+--
+-- PLEASE NOTE
+-- 
+-- No warranty, no liability, no support.
+--
+-- This script is 100% at your own risk to use.
+--
+-------------------------------------------------------------------------------
 create or replace 
 function as_insert(p_query varchar2, p_batch int default 10) return sys.odcivarchar2list pipelined as
     l_theCursor     integer default dbms_sql.open_cursor;

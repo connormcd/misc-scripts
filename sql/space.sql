@@ -1,3 +1,12 @@
+-------------------------------------------------------------------------------
+--
+-- PLEASE NOTE
+-- 
+-- No warranty, no liability, no support.
+--
+-- This script is 100% at your own risk to use.
+--
+-------------------------------------------------------------------------------
 col tablespace_name format a20
 col pct_free format 999.99
 select tablespace_name,max_blocks,count_blocks,sum_free_blocks,

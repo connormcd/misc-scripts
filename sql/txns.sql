@@ -1,3 +1,12 @@
+-------------------------------------------------------------------------------
+--
+-- PLEASE NOTE
+-- 
+-- No warranty, no liability, no support.
+--
+-- This script is 100% at your own risk to use.
+--
+-------------------------------------------------------------------------------
 select b.inst_id, b.sid, b.serial#,b.username,b.machine ,b.status,b.prev_sql_id,c.sql_text,d.object_id,e.object_name,
 a.start_time,to_char(b.logon_time,’MM/DD/YY HH24:MI:SS’) logon_time
 from    gv$transaction a ,

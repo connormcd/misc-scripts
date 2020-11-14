@@ -1,3 +1,12 @@
+-------------------------------------------------------------------------------
+--
+-- PLEASE NOTE
+-- 
+-- No warranty, no liability, no support.
+--
+-- This script is 100% at your own risk to use.
+--
+-------------------------------------------------------------------------------
 select io.name, t.name,
        decode(bitand(i.flags, 65536), 0, 'NO', 'YES'),
        decode(bitand(ou.flags, 1), 0, 'NO', 'YES'),

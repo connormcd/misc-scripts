@@ -1,3 +1,12 @@
+-------------------------------------------------------------------------------
+--
+-- PLEASE NOTE
+-- 
+-- No warranty, no liability, no support.
+--
+-- This script is 100% at your own risk to use.
+--
+-------------------------------------------------------------------------------
 rem Author:     RSANDERS.UK
 rem Name:       ts_prod.sql
 rem             Find and list TEMP segments and their owners

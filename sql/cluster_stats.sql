@@ -1,3 +1,12 @@
+-------------------------------------------------------------------------------
+--
+-- PLEASE NOTE
+-- 
+-- No warranty, no liability, no support.
+--
+-- This script is 100% at your own risk to use.
+--
+-------------------------------------------------------------------------------
 analyze cluster C_COBJ# compute statistics;
 analyze cluster C_FILE#_BLOCK# compute statistics;
 analyze cluster C_MLOG# compute statistics;

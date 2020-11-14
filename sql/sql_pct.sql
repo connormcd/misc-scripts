@@ -1,3 +1,12 @@
+-------------------------------------------------------------------------------
+--
+-- PLEASE NOTE
+-- 
+-- No warranty, no liability, no support.
+--
+-- This script is 100% at your own risk to use.
+--
+-------------------------------------------------------------------------------
 select sql_text, round(100*buffer_gets/totbuf) pct
 from v$sql, 
   ( select sum(buffer_gets) totbuf

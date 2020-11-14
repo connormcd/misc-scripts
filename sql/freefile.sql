@@ -1,3 +1,12 @@
+-------------------------------------------------------------------------------
+--
+-- PLEASE NOTE
+-- 
+-- No warranty, no liability, no support.
+--
+-- This script is 100% at your own risk to use.
+--
+-------------------------------------------------------------------------------
 select f.tablespace_name, f.file_id, sum(f.bytes) "TOT_FREE", max(f.bytes) "LARGEST_SEG", 
                    max(d.totspace) total_size, round(100-sum(f.bytes)/max(d.totspace)*100) pct_used
 from sys.dba_free_space f, ( select tablespace_name, file_id, sum(bytes) totspace

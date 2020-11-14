@@ -1,3 +1,12 @@
+-------------------------------------------------------------------------------
+--
+-- PLEASE NOTE
+-- 
+-- No warranty, no liability, no support.
+--
+-- This script is 100% at your own risk to use.
+--
+-------------------------------------------------------------------------------
 Here is a set of routines that do all the common base conversions.  Syntax is
 similar to using to_number, to_date, etc.  So, now you can select to_hex,
 to_bin, to_oct, to_dec of various numbers (or just call from pl/sql)

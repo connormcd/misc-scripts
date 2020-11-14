@@ -1,3 +1,12 @@
+-------------------------------------------------------------------------------
+--
+-- PLEASE NOTE
+-- 
+-- No warranty, no liability, no support.
+--
+-- This script is 100% at your own risk to use.
+--
+-------------------------------------------------------------------------------
 create or replace function 
 remove_constants( p_query in varchar2 ) return varchar2as    l_query long;
     l_char  varchar2(1);    l_in_quotes boolean default FALSE;
