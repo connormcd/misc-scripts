@@ -1,2 +1,2 @@
-The file cannot be copied onto itself.
-        0 file(s) copied.
+select * 
+from table(dbms_xplan.display(format=>'PARTITION  -COST -BYTES'));

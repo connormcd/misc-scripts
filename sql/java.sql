@@ -1,2 +1,2 @@
-The file cannot be copied onto itself.
-        0 file(s) copied.
+exec dbms_java.set_output(999999)
+set serverout on size 999999

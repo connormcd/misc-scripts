@@ -1,2 +1,4 @@
-The file cannot be copied onto itself.
-        0 file(s) copied.
+col name format a40
+select name, count
+from sys.x_$kcbfwait, v$datafile
+where indx + 1 = file#;

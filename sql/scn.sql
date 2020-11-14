@@ -1,2 +1,2 @@
-The file cannot be copied onto itself.
-        0 file(s) copied.
+set serverout on
+exec dbms_output.put_line(dbms_flashback.GET_SYSTEM_CHANGE_NUMBER);

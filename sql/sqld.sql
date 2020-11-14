@@ -1,2 +1,1 @@
-The file cannot be copied onto itself.
-        0 file(s) copied.
+@pt "select * from v$sql where sql_id = '&sql_id'"

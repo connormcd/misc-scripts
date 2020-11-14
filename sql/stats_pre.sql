@@ -1,2 +1,4 @@
-The file cannot be copied onto itself.
-        0 file(s) copied.
+drop table stats_pre;
+create table stats_pre pctfree 0 as
+select statistic#, value
+from  v$mystat;

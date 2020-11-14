@@ -1,2 +1,1 @@
-The file cannot be copied onto itself.
-        0 file(s) copied.
+alter session set "_serial_direct_read" = ALWAYS;

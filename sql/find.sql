@@ -1,2 +1,8 @@
-The file cannot be copied onto itself.
-        0 file(s) copied.
+col object_name format a40
+col owner format a12
+set lines 100
+set verify off
+select owner, object_name, object_type, status, created
+from dba_objects
+where object_name like upper(nvl('&object_name',object_name))||'%'
+and object_type like upper(nvl('&object_type',object_type))||'%';

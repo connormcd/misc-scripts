@@ -1,2 +1,1 @@
-The file cannot be copied onto itself.
-        0 file(s) copied.
+select banner from v$version;

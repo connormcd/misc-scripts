@@ -1,2 +1,8 @@
-The file cannot be copied onto itself.
-        0 file(s) copied.
+set heading off
+set feed off
+set pause off
+
+select name from v$database
+/
+@login
+

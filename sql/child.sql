@@ -1,2 +1,3 @@
-The file cannot be copied onto itself.
-        0 file(s) copied.
+pro in Child script
+
+pro child param 1 is &1

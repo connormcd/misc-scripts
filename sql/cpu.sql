@@ -1,2 +1,5 @@
-The file cannot be copied onto itself.
-        0 file(s) copied.
+set verify off
+select s.USERNAME, p.SPID
+from v$session s, v$process p
+where s.PADDR = p.ADDR
+and p.SPID = &process;

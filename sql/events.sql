@@ -1,2 +1,4 @@
-The file cannot be copied onto itself.
-        0 file(s) copied.
+col event format a40
+select *
+from v$system_event
+order by 4;

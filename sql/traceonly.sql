@@ -1,2 +1,3 @@
-The file cannot be copied onto itself.
-        0 file(s) copied.
+set autotrace traceonly stat
+set timing on
+set arraysize 100

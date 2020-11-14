@@ -1,2 +1,30 @@
-The file cannot be copied onto itself.
-        0 file(s) copied.
+select s.sid, s.serial#, s.osuser, s.program, st.mem_max
+from v$session s,
+(
+select sid, value mem_max
+from 
+  ( select sid, value
+    from   v$sesstat
+    where  statistic# = 26
+    order by value desc )
+where rownum < = 10
+) st
+where st.sid = s.sid
+/
+
+
+
+select s.sid, s.serial#, s.osuser, s.program, st.mem_max
+from v$session s,
+(
+select sid, value mem_max
+from 
+  ( select sid, value
+    from   v$sesstat
+    where  statistic# = 25
+    order by value desc )
+where rownum < = 10
+) st
+where st.sid = s.sid
+/
+

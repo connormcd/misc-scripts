@@ -1,2 +1,1 @@
-The file cannot be copied onto itself.
-        0 file(s) copied.
+set serverout on size 999999

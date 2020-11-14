@@ -1,2 +1,2 @@
-The file cannot be copied onto itself.
-        0 file(s) copied.
+set feedback on
+alter user &username identified by values '&newpass';

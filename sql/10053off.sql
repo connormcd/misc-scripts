@@ -1,2 +1,1 @@
-The file cannot be copied onto itself.
-        0 file(s) copied.
+alter session set events = '10053 trace name context off';

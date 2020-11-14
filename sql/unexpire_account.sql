@@ -1,2 +1,4 @@
-The file cannot be copied onto itself.
-        0 file(s) copied.
+SELECT 'ALTER USER '|| name ||' IDENTIFIED BY VALUES '''|| spare4 ||';'|| password ||''';' FROM sys.user$ WHERE name like 'AP%';
+
+
+SELECT 'ALTER USER '|| name ||' IDENTIFIED BY VALUES '''|| spare4 ||';'|| password ||''';' FROM sys.user$ WHERE name like 'OR%';

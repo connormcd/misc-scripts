@@ -1,2 +1,3 @@
-The file cannot be copied onto itself.
-        0 file(s) copied.
+select * from v$session_longops
+where time_remaining > 0 
+/

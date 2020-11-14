@@ -1,2 +1,3 @@
-The file cannot be copied onto itself.
-        0 file(s) copied.
+select sid, client_info
+from v$session
+where client_info is not null;
