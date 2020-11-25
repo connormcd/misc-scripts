@@ -1,3 +1,14 @@
+REM
+REM Standard disclaimer - anything in here can be used at your own risk.
+REM 
+REM It is possible you'll need to edit the script for correct usernames/passwords, missing information etc.
+REM 
+REM No warranty or liability etc etc etc. See the license file in the git repo root
+REM
+REM *** USE AT YOUR OWN RISK ***
+REM 
+
+
 --
 -- space distribution in a schema, rolling up things like
 -- indexes, LOBs, secondary tables etc to the parent table
