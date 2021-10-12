@@ -6,12 +6,12 @@ REM by guiding the novice as best as possible to ensure a sucessfull installatio
 REM of the schema.  Things it will endeavour to do:
 REM
 REM  - not let you install into a root container by mistake
-REM  - make sure are connected correctly
+REM  - make sure you are connected correctly
 REM  - if you are connected as HR, we'll try reload the schema objects and keep the user
 REM  - if you are connected not as HR, we'll try drop/recreate the HR schema
 REM  - we check for required privs in the HR schema
 REM  - we check for required privs for an admin to build the HR schema from scratch
-REM  - we check to appropriate tablespace quotas
+REM  - we check for appropriate tablespace quotas
 REM  - we check for default tablespaces
 REM  - we check for existing sessions as HR which would block a drop
 REM  - we check for OS file writability for spool files
@@ -19,8 +19,8 @@ REM
 REM In all cases, we try to provide guidance on remedial action to follow if 
 REM the installation fails or cannot proceed.
 REM
-RME Like anything, you could come up with a bizarre set of circumstances in which
-REM this can be broken, but it should work for most. If do you break it, please
+REM Like anything, you could come up with a bizarre set of circumstances in which
+REM this can be broken, but it should work for most. If you do you break it, please
 REM get in touch so I can make it even more carefree for beginners.
 REM 
 REM
@@ -207,6 +207,7 @@ declare
   l_priv sys.odcivarchar2list := 
       sys.odcivarchar2list (
          'DROP USER'
+        ,'CREATE USER'
         ,'ALTER SESSION'
         ,'CREATE ANY TABLE'
         ,'CREATE ANY CLUSTER'
@@ -483,7 +484,7 @@ begin
   end if;
 end;
 /
-whenever sqlerror exit
+whenever sqlerror continue
 
 
 ---------------
@@ -3422,4 +3423,6 @@ where  owner = 'HR'
 order by object_type, object_name;
 
 pro **** INSTALLATION COMPLETE ****
+
+whenever sqlerror continue
 
