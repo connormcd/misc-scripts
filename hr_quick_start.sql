@@ -483,7 +483,7 @@ begin
   end if;
 end;
 /
-whenever sqlerror continue
+whenever sqlerror exit
 
 
 ---------------
