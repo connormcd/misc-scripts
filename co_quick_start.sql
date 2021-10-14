@@ -163,8 +163,7 @@ declare
         ,'CREATE VIEW'
         ,'CREATE SEQUENCE'
         ,'CREATE PROCEDURE'
-        ,'CREATE TRIGGER'
-         );
+        ,'CREATE TRIGGER');
   l_fail boolean := false;        
 begin
   if user = 'CO' then
@@ -228,6 +227,7 @@ declare
         
   l_fail boolean := false;      
   l_sess int;
+  l_priv_cnt int;
 begin
   if user != 'CO' then
     for i in ( select p.column_value, s.privilege
@@ -240,8 +240,50 @@ begin
       if i.privilege is not null then
         dbms_output.put_line('Privilege '||rpad(i.column_value,30,'.')||'...OK');
       else       
-        dbms_output.put_line('Privilege '||rpad(i.column_value,30,'.')||'...FAIL');
-        l_fail := true;
+        --
+        -- we might be able to get away with less here (we'll try)
+        --
+        if i.column_value = 'GRANT ANY PRIVILEGE' then
+          begin
+            execute immediate q'{
+                with role_list as (
+                  select distinct granted_role 
+                  from dba_role_privs
+                  start with grantee = user
+                  connect by prior granted_role = grantee
+                  union all 
+                  select user from dual
+                  union all
+                  select 'PUBLIC' from dual
+                )
+                select count(distinct p.privilege)
+                from role_list r, dba_sys_privs p
+                where p.grantee = r.granted_role
+                and p.admin_option = 'YES'
+                and p.privilege in (
+                     'CREATE SESSION'
+                    ,'ALTER SESSION'
+                    ,'CREATE TABLE'
+                    ,'CREATE VIEW'
+                    ,'CREATE SEQUENCE'
+                    ,'CREATE PROCEDURE'
+                    ,'CREATE TRIGGER')
+                    }' into l_priv_cnt;
+              if l_priv_cnt = 7 then
+                dbms_output.put_line('Privilege '||rpad(i.column_value,30,'.')||'...OK (NOT NEEDED)');
+              else
+                dbms_output.put_line('Privilege '||rpad(i.column_value,30,'.')||'...FAIL');
+                l_fail := true;
+              end if;
+            exception
+              when others then
+                dbms_output.put_line('Privilege '||rpad(i.column_value,30,'.')||'...FAIL');
+                l_fail := true;
+            end;
+        else
+          dbms_output.put_line('Privilege '||rpad(i.column_value,30,'.')||'...FAIL');
+          l_fail := true;
+        end if;
       end if;
     end loop;
     --
