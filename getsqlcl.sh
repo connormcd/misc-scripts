@@ -1,5 +1,15 @@
 #!/bin/ksh
 
+#
+# Standard disclaimer - anything in here can be used at your own risk.
+#
+# edit the first three variables for your environment
+#
+# No warranty or liability etc etc etc. See the license file in the git repo root
+#
+# USE AT YOUR OWN RISK 
+#
+
 tmpdir=/tmp
 tmpfile=sqlcl-latest.zip
 target=/u01/app/oracle/product
@@ -19,7 +29,7 @@ GetLatest()
   cd $tmpdir
   rm -f $tmpfile 
   rm -rf sqlcl
-  wget -q -O $tmpfile https://download.oracle.com/otn_software/java/sqldeveloper/sqlcl-latest.zip
+  curl -s -o $tmpfile https://download.oracle.com/otn_software/java/sqldeveloper/sqlcl-latest.zip
   if [ -f $tmpfile ] ; then
     unzip -q $tmpfile
     if [ ! -d sqlcl ] ; then
