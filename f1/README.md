@@ -1,6 +1,6 @@
 # Formula 1 data
 
-1) Copy files into a common directory.  Assumes you have access to CURL, GZIP and SED utilties.
+1) Copy files into a common directory.  Assumes you have access to CURL, GZIP and SED utilties. If you have these on Windows, simply rename f1.sh to f1.cmd and you're good to go
 2) Run f1.sh, which will download the F1 data, unzip it and convert it from non-Oracle to an Oracle script called f1_build.sql
 3) Run f1_wrapper.sql in a precreated schema you wish to load the tables into. This will call f1_build.sql to load the tables
 
