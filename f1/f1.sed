@@ -1,0 +1,20 @@
+s/CREATE TABLE "/create table f1_/;
+s/NOT NULL DEFAULT ''//;
+s/AUTO_INCREMENT//;
+s/varchar(/varchar2(/;
+s/ float / number /;
+s/ int(/ number(/;
+s/UNIQUE KEY .*(/UNIQUE (/;
+s/INSERT INTO "/insert into f1_/;
+s/NOT NULL DEFAULT '0'/DEFAULT '0' NOT NULL/;
+s/DEFAULT '0000-00-00'//;
+s/"number"/ordinal/;
+s/KEY "raceId_2" ("raceId")/--/;
+s/KEY "raceId" ("raceId"),/check ( raceid is not null)/;
+s/KEY "raceId" ("raceId")/check ( raceid is not null)/;
+s/\\'/''/g;
+s/^\/.*//;
+s/"//g;
+s/date date/racedate date/;
+s/time time/timeofday varchar2(10)/;
+s/&amp;/\&/
