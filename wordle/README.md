@@ -31,34 +31,34 @@ If you want to cheat, pass null as a guess and the code will take a guess for yo
 
 How Automated Guessing Works
 ============================
-Based on the distribution of letters in english words, the first two guesses will always be 'raise' and 'count' because they cover the vowels and some common consonants. That gets the ball rolling. For subsequent guesses, we are building a SQL statement based on the guesses to date.  For example, asssuming a guess of 'raise' and the first letter 'r' is fully correct, and the 'e' is correct but misplaced.  That yields an SQL that could be used to find another guess, namely
+Based on the distribution of letters in english words, the first two guesses will always be 'raise' and 'count' because they cover the vowels and some common consonants. That gets the ball rolling. For subsequent guesses, we are building a SQL statement based on the guesses to date.  For example, asssuming a guess of 'raise' and the first letter 'r' is fully correct, and the 'e' is correct but misplaced.  That yields an SQL that could be used to find another guess, namely:
 
-   select w
-   from   wordle
-   --
-   -- must start with 'r'
-   --
-   where  w like 'r_____'
-   --
-   -- must contain an 'e'
-   --
-   and    w like '%e%'
-   --
-   -- but the 'e' is not in the last position
-   --
-   and    w not like '____e'
-   --
-   -- must contain an 'a','i','s'
-   --
-   and    w not like '%a%'
-   and    w not like '%i%'
-   and    w not like '%s%'
+    select w
+    from   wordle
+    --
+    -- must start with 'r'
+    --
+    where  w like 'r_____'
+    --
+    -- must contain an 'e'
+    --
+    and    w like '%e%'
+    --
+    -- but the 'e' is not in the last position
+    --
+    and    w not like '____e'
+    --
+    -- must contain an 'a','i','s'
+    --
+    and    w not like '%a%'
+    and    w not like '%i%'
+    and    w not like '%s%'
 
-That gives a list of potential next guesses. In order to pick one of these intelligently, there is also a "strength" function in the code.  When the code is first run, we stored a popularity distribution for each letter in the words.dat file.  For example, 'a' might be the popular letter ocurring 10% of the time, followed by 'e' at 9% and so on.  Thus out of the candidate words the above SQL might return, we will pass the 5 letters in the word to the strength function which sums each letter's popularity percentage to give an overall "strength" to the word.  We will opt for the strongest word first.  Obviously word popularity is different to sum-of-letters popularity, but its close enough.  So our SQL will end up like
+That gives a list of potential next guesses. In order to pick one of these intelligently, there is also a "strength" function in the code.  When the code is first run, we stored a popularity distribution for each letter in the words.dat file.  For example, 'a' might be the popular letter ocurring 10% of the time, followed by 'e' at 9% and so on.  Thus out of the candidate words the above SQL might return, we will pass the 5 letters in the word to the strength function which sums each letter's popularity percentage to give an overall "strength" to the word.  We will opt for the strongest word first.  Obviously word popularity is different to sum-of-letters popularity, but its close enough.  So our SQL will end up like:
 
-   select w
-   from 
-   (
+    select w
+    from 
+    (
      select w
      from   wordle
      --
@@ -80,8 +80,8 @@ That gives a list of potential next guesses. In order to pick one of these intel
      and    w not like '%i%'
      and    w not like '%s%'
      order by strength(w) desc
-   )
-   where rownum = 1
+    )
+    where rownum = 1
 
 Example Run
 ===========
