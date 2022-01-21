@@ -74,7 +74,7 @@ That gives a list of potential next guesses. In order to pick one of these intel
      --
      and    w not like '____e'
      --
-     -- must contain an 'a','i','s'
+     -- must NOT contain an 'a','i','s'
      --
      and    w not like '%a%'
      and    w not like '%i%'
