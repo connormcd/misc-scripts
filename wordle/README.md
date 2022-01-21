@@ -54,7 +54,7 @@ Based on the distribution of letters in english words, the first two guesses wil
     and    w not like '%i%'
     and    w not like '%s%'
 
-That gives a list of potential next guesses. In order to pick one of these intelligently, there is also a "strength" function in the code.  When the code is first run, we stored a popularity distribution for each letter in the words.dat file.  For example, 'a' might be the popular letter ocurring 10% of the time, followed by 'e' at 9% and so on.  Thus out of the candidate words the above SQL might return, we will pass the 5 letters in the word to the strength function which sums each letter's popularity percentage to give an overall "strength" to the word.  We will opt for the strongest word first.  Obviously word popularity is different to sum-of-letters popularity, but its close enough.  So our SQL will end up like:
+That gives a list of potential next guesses. In order to pick one of these intelligently, there is also a "strength" function in the code.  When the code is first run, we store a popularity distribution for each letter in the words.dat file.  For example, 'a' might be the most popular letter ocurring 10% of the time, followed by 'e' at 9% and so on.  Thus out of the candidate words the above SQL might return, we will pass the 5 letters in the word to the strength function which sums each letter's popularity percentage to give an overall "strength" to the word.  We will opt for the strongest word first.  Obviously word popularity is different to sum-of-letters popularity, but its close enough.  So our SQL will end up like:
 
     select w
     from 
