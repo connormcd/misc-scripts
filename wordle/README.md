@@ -48,7 +48,7 @@ Based on the distribution of letters in english words, the first two guesses wil
     --
     and    w not like '____e'
     --
-    -- must contain an 'a','i','s'
+    -- must NOT contain an 'a','i','s'
     --
     and    w not like '%a%'
     and    w not like '%i%'
