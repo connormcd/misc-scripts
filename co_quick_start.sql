@@ -33,6 +33,7 @@ REM
 
 
 set echo off
+set lines 200
 set termout off
 set markup csv off
 set markup html off
