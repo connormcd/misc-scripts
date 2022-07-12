@@ -877,6 +877,7 @@ REM ***************************insert data into the COUNTRIES table
 
 Prompt ******  Populating COUNTIRES table ....
 
+begin
 INSERT INTO countries VALUES 
         ( 'IT'
         , 'Italy'
@@ -1026,12 +1027,15 @@ INSERT INTO countries VALUES
         , 'Belgium'
         , 1 
         );
+end;
+/
 
 
 REM ***************************insert data into the LOCATIONS table
 
 Prompt ******  Populating LOCATIONS table ....
 
+begin
 INSERT INTO locations VALUES 
         ( 1000 
         , '1297 Via Cola di Rie'
@@ -1238,6 +1242,8 @@ INSERT INTO locations VALUES
         , 'Distrito Federal,'
         , 'MX'
         );
+end;
+/
 
 
 REM ****************************insert data into the DEPARTMENTS table
@@ -1249,6 +1255,7 @@ REM disable integrity constraint to EMPLOYEES to load data
 ALTER TABLE departments 
   DISABLE CONSTRAINT dept_mgr_fk;
 
+begin
 INSERT INTO departments VALUES 
         ( 10
         , 'Administration'
@@ -1438,11 +1445,14 @@ INSERT INTO departments VALUES
         , 1700
         );
 
+end;
+/
 
 REM ***************************insert data into the JOBS table
 
 Prompt ******  Populating JOBS table ....
 
+begin
 INSERT INTO jobs VALUES 
         ( 'AD_PRES'
         , 'President'
@@ -1572,12 +1582,14 @@ INSERT INTO jobs VALUES
         , 4500
         , 10500
         );
-
+end;
+/
 
 REM ***************************insert data into the EMPLOYEES table
 
 Prompt ******  Populating EMPLOYEES table ....
 
+begin
 INSERT INTO employees VALUES 
         ( 100
         , 'Steven'
@@ -3076,11 +3088,14 @@ INSERT INTO employees VALUES
         , 110
         );
 
+end;
+/
+
 REM ********* insert data into the JOB_HISTORY table
 
 Prompt ******  Populating JOB_HISTORY table ....
 
-
+begin
 INSERT INTO job_history
 VALUES (102
        , TO_DATE('13-01-2001', 'dd-MM-yyyy')
@@ -3156,6 +3171,8 @@ VALUES  (200
         , 'AC_ACCOUNT'
         , 90
         );
+end;
+/
 
 REM enable integrity constraint to DEPARTMENTS
 
