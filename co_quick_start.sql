@@ -419,7 +419,7 @@ from   database_properties
 where  PROPERTY_NAME = 'DEFAULT_TEMP_TABLESPACE';
 
 col rndstr new_value pass
-select dbms_random.string('A',10)||'$'||trunc(dbms_random.value(100,999)) rndstr from dual;
+select dbms_random.string('A',10)||'$$'||trunc(dbms_random.value(100,999)) rndstr from dual;
 set termout on
 
 set termout off
