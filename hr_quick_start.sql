@@ -57,6 +57,17 @@ set termout on
 whenever sqlerror continue
 clear screen
 
+pro |
+pro | NOTE:
+pro |
+pro | These scripts have been updated to reflect more more
+pro | data, as based on the new sample schema scripts in the
+pro | official git rep.
+pro |
+pro | You may want to use hr_quick_start_23.sql instead 
+pro |
+
+accept dummy prompt 'Enter to proceed, Ctrl-C to stop'
 
 pro | 1) Preliminary checks
 pro | =====================
