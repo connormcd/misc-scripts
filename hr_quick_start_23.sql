@@ -222,7 +222,7 @@ declare
         ,'ALTER USER'
         ,'COMMENT ANY TABLE'
         ,'GRANT ANY OBJECT PRIVILEGE'
-        ,'GRANT ANY PRIVILEGE'
+        --,'GRANT ANY PRIVILEGE'
         ,'CREATE SESSION'
         ,'ALTER ANY TABLE'
         ,'SELECT ANY TABLE'
