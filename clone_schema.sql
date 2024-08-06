@@ -8,6 +8,9 @@ REM
 REM *** USE AT YOUR OWN RISK ***
 REM 
 
+--
+-- NOTE: There is a more robust implementation of this now in clone_schema_v2.sql
+--
 
 
 -- PLSQL api to clone a schema, for Oracle Database 18c
