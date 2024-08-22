@@ -269,13 +269,21 @@ pause
 clear screen
 conn ogb/ogb@YOURDB
 lock table results in exclusive mode;
+--
+-- the "sql_plus" below is just a batch file doing
+--
+--     @echo off
+--     sqlplus.exe /nolog %1 %2 %3 %4 %5
+--     exit 
+-- it just got complicated having all those commands nested in a "host start" on windows
+--
 
-host start sql_plus @c:\oracle\sql\ogb_bench.sql 0
-host start sql_plus @c:\oracle\sql\ogb_bench.sql 1
-host start sql_plus @c:\oracle\sql\ogb_bench.sql 2
-host start sql_plus @c:\oracle\sql\ogb_bench.sql 3
-host start sql_plus @c:\oracle\sql\ogb_bench.sql 4
-host start sql_plus @c:\oracle\sql\ogb_bench.sql 5
+host start sql_plus @ogb_bench.sql 0
+host start sql_plus @ogb_bench.sql 1
+host start sql_plus @ogb_bench.sql 2
+host start sql_plus @ogb_bench.sql 3
+host start sql_plus @ogb_bench.sql 4
+host start sql_plus @ogb_bench.sql 5
 
 rem
 rem Jumping straight into commit
