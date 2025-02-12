@@ -1,0 +1,24 @@
+REM
+REM Standard disclaimer - anything in here can be used at your own risk.
+REM 
+REM It is very likely you'll need to edit the script for correct usernames/passwords etc.
+REM 
+REM No warranty or liability etc etc etc. See the license file in the git repo root
+REM
+REM *** USE AT YOUR OWN RISK ***
+REM 
+
+set echo on
+restore from platform 'Linux x86 64-bit' 
+  foreign datafile 1 format 'X:\ORACLE\ORADATA\DB19S\SYSTEM01.DBF' 
+  from backupset 'X:\temp\bkp021i3v8c_2_1_1';
+restore from platform 'Linux x86 64-bit' 
+  foreign datafile 3 format 'X:\ORACLE\ORADATA\DB19S\SYSAUX01.DBF' 
+  from backupset 'X:\temp\bkp021i3v8c_2_1_1';
+restore from platform 'Linux x86 64-bit' 
+  foreign datafile 4 format 'X:\ORACLE\ORADATA\DB19S\UNDOTBS01.DBF' 
+  from backupset 'X:\temp\bkp021i3v8c_2_1_1';
+restore from platform 'Linux x86 64-bit' 
+  foreign datafile 7 format 'X:\ORACLE\ORADATA\DB19S\USERS01.DBF' 
+  from backupset 'X:\temp\bkp021i3v8c_2_1_1';
+exit

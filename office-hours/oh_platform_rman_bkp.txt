@@ -1,0 +1,27 @@
+REM
+REM Standard disclaimer - anything in here can be used at your own risk.
+REM 
+REM It is very likely you'll need to edit the script for correct usernames/passwords etc.
+REM 
+REM No warranty or liability etc etc etc. See the license file in the git repo root
+REM
+REM *** USE AT YOUR OWN RISK ***
+REM 
+
+Starting backup at 16-JAN-23
+channel c1: starting full datafile backup set
+channel c1: specifying datafile(s) in backup set
+input datafile file number=00001 name=/u01/app/oracle/oradata/DB19/system01.dbf
+input datafile file number=00004 name=/u01/app/oracle/oradata/DB19/undotbs01.dbf
+input datafile file number=00003 name=/u01/app/oracle/oradata/DB19/sysaux01.dbf
+input datafile file number=00007 name=/u01/app/oracle/oradata/DB19/users01.dbf
+channel c1: starting piece 1 at 16-JAN-23
+channel c1: finished piece 1 at 16-JAN-23
+piece handle=/home/oracle/bkp021i3v8c_2_1_1 tag=TAG20230116T212220 comment=NONE
+channel c1: backup set complete, elapsed time: 00:00:15
+Finished backup at 16-JAN-23
+
+Starting Control File and SPFILE Autobackup at 16-JAN-23
+piece handle=/u01/app/oracle/product/19.2.0/dbhome_1/dbs/c-857515531-20230116-00 comment=NONE
+Finished Control File and SPFILE Autobackup at 16-JAN-23
+released channel: c1
