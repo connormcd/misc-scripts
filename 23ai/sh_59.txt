@@ -1,0 +1,65 @@
+drop table scott.emp2 purge;
+create table scott.emp2 as 
+select * from scott.emp where 1=0;
+
+host cat c:\tmp\emp21.ctl
+
+select sid, username, status
+from v$session
+where  username = 'SCOTT';
+
+prompt sqlldr21 userid=scott/tiger@db23 control=c:\tmp\emp.ctl log=c:\tmp\emp.log parallel=true direct=true
+
+pause
+/
+pause
+/
+pause
+
+
+
+
+
+col LAST_ACCESSED_TIME format a30
+select *
+from v$table_access_stats
+order by read_count desc
+fetch first 10 rows only;
+
+select o.object_name, s.read_count, s.last_accessed_time
+from   user_objects o,
+       v$table_access_stats s
+where  o.object_id = s.object_id 
+order by s.read_count desc
+fetch first 10 rows only
+
+
+
+
+@drop t
+create table t ( pk int, j json );
+insert into t values ( 1, json( '{ "tag" : 31 }'));
+insert into t values ( 2, json( '{ "tag" : 31 }' extended));
+
+
+
+@drop t
+create table t ( pk int, j json );
+insert into t values ( 1, json( '{ "tag" : "'||json_scalar(sysdate)||'" }'));
+insert into t values ( 2, json( '{ "tag" : "'||json_scalar(sysdate)||'" }' extended));
+select * from t;
+select pk, json_serialize(j extended) from t;
+
+@drop t
+create table t ( pk int, j json );
+insert into t values ( 1, json( '{ "tag" : "31" }'));
+insert into t values ( 2, json( '{ "tag" : {"$numberDecimal":"31"} }' extended));
+select * from t;
+
+
+select json_serialize(j) from t;
+select json_serialize(j extended) from t;
+
+pause Done
+
+
