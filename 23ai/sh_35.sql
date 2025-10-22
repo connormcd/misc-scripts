@@ -106,21 +106,12 @@ set lines 300
 set feedback off
 set serverout on
 set termout on
-begin 
-  dbms_output.put_line(
-'SQL> select banner from v$version;
 
-BANNER
-----------------------------------------------------------
-Oracle Database 23ai Enterprise Edition Release 23.0.0.0.0
-
-1 row selected.
-');
-end;
-/
 set feedback on
 set echo on
+select banner from v$version;
 pause
+
 declare
   p_url            varchar2(100) := 'https://www.oracle.com';
   l_http_request   utl_http.req;
@@ -142,5 +133,41 @@ select
       p_url => 'https://www.oracle.com',
       p_http_method => 'GET')
 from dual;
+pause
+set echo off
+clear screen
+prompt   
+prompt   
+prompt     ____   ____  _   _ _    _  _____    _______ _____ _____  
+prompt    |  _ \ / __ \| \ | | |  | |/ ____|  |__   __|_   _|  __ \ 
+prompt    | |_) | |  | |  \| | |  | | (___       | |    | | | |__) |
+prompt    |  _ <| |  | | . ` | |  | |\___ \      | |    | | |  ___/ 
+prompt    | |_) | |__| | |\  | |__| |____) |     | |   _| |_| |     
+prompt    |____/ \____/|_| \_|\____/|_____/      |_|  |_____|_|     
+prompt                                                              
+prompt                                                              
+set echo on
+pause
+clear screen
+set serverout on
+declare
+  p_url            varchar2(100) := 'https://www.oracle.com';
+  l_http_request   utl_http.req;
+  l_http_response  utl_http.resp;
+  l_text           varchar2(32767);
+begin
+  UTL_HTTP.SET_WALLET('system:');
+
+  l_http_request  := utl_http.begin_request(p_url);
+  l_http_response := utl_http.get_response(l_http_request);
+  utl_http.read_text(l_http_response, l_text, 32766);
+  dbms_output.put_line(substr(l_text,1,100)); 
+exception
+    when utl_http.end_of_body then
+      utl_http.end_response(l_http_response);
+end;
+.
+pause
+/
 
 pause Done

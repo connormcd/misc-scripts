@@ -7,10 +7,10 @@ set termout off
 set define off
 undefine 1
 clear screen
+col trcfile clear
 set define '&'
 set verify off
 set termout on
-col pfx new_value pfx1
 set echo off
 prompt |
 prompt |    _      ____  _   _  _____    _      ____  ____   _____ 
@@ -23,11 +23,6 @@ prompt |
 pause
 set echo on
 clear screen
-select value pfx from v$diag_info
-where name = 'Diag Trace';
-create or replace directory tracedir 
-as '&&pfx1';
-pause
 create table t ( pk int, c clob )
 lob (c) store as ( enable storage in row );
 pause
@@ -49,9 +44,8 @@ select
    and owner = user ) file_no
 from t ;
 pause
-col trcfile new_value fname nopri
-col trace_file new_value trc
-select value trace_file, substr(value,1+instr(value,'/',-1)) trcfile
+col trcfile new_value fname
+select substr(value,1+instr(value,'/',-1)) trcfile
 from v$diag_info
 where name = 'Default Trace File';
 pause
@@ -62,20 +56,10 @@ clear screen
 conn dbdemo/dbdemo@db23
 set termout on
 set echo on
-select col
-from   external (
-      ( col varchar2(4000) )
-      type oracle_loader
-      default directory tracedir
-      access parameters
-      ( records delimited by newline
-        nobadfile
-        nologfile
-        nodiscardfile
-       )
-       location ( '&&fname' )
-reject limit unlimited ) ext
-where substr(col,1,3) in (
+select payload
+from   v$diag_trace_file_contents
+where trace_filename = '&&fname'
+and substr(payload,1,3) in (
 'blo',
 'tab',
 'tl:',
@@ -111,28 +95,18 @@ select
    and owner = user ) file_no
 from t ;
 pause
-col trace_file new_value trc
-select value trace_file, substr(value,1+instr(value,'/',-1)) trcfile
+col trcfile new_value fname
+select substr(value,1+instr(value,'/',-1)) trcfile
 from v$diag_info
 where name = 'Default Trace File';
 pause
 alter system dump datafile &&f block &&b;
 pause
 clear screen
-select col
-from   external (
-      ( col varchar2(4000) )
-      type oracle_loader
-      default directory tracedir
-      access parameters
-      ( records delimited by newline
-        nobadfile
-        nologfile
-        nodiscardfile
-       )
-       location ( '&&fname' )
-reject limit unlimited ) ext
-where substr(col,1,3) in (
+select payload
+from   v$diag_trace_file_contents
+where trace_filename = '&&fname'
+and substr(payload,1,3) in (
 'blo',
 'tab',
 'tl:',
@@ -140,20 +114,12 @@ where substr(col,1,3) in (
 );
 pause
 clear screen
-select col
-from   external (
-      ( col varchar2(4000) )
-      type oracle_loader
-      default directory tracedir
-      access parameters
-      ( records delimited by newline
-        nobadfile
-        nologfile
-        nodiscardfile
-       )
-       location ( '&&fname' )
-reject limit unlimited ) ext
-where col like 'LOB%' or col like 'Locator%' or col like '  Leng%'
+select payload
+from   v$diag_trace_file_contents
+where trace_filename = '&&fname'
+and ( payload like 'LOB%' 
+ or payload like 'Locator%' 
+ or payload like '  Leng%' )
 
 pause
 /
@@ -182,27 +148,17 @@ select
    where segment_name = 'T'
    and owner = user ) file_no
 from t ;
-col trace_file new_value trc
-select value trace_file, substr(value,1+instr(value,'/',-1)) trcfile
+col trcfile new_value fname
+select substr(value,1+instr(value,'/',-1)) trcfile
 from v$diag_info
 where name = 'Default Trace File';
 alter system dump datafile &&f block &&b;
 pause
 clear screen
-select col
-from   external (
-      ( col varchar2(4000) )
-      type oracle_loader
-      default directory tracedir
-      access parameters
-      ( records delimited by newline
-        nobadfile
-        nologfile
-        nodiscardfile
-       )
-       location ( '&&fname' )
-reject limit unlimited ) ext
-where substr(col,1,3) in (
+select payload
+from   v$diag_trace_file_contents
+where trace_filename = '&&fname'
+and substr(payload,1,3) in (
 'blo',
 'tab',
 'tl:',
@@ -233,27 +189,17 @@ select
    where segment_name = 'T'
    and owner = user ) file_no
 from t ;
-col trace_file new_value trc
-select value trace_file, substr(value,1+instr(value,'/',-1)) trcfile
+col trcfile new_value fname
+select substr(value,1+instr(value,'/',-1)) trcfile
 from v$diag_info
 where name = 'Default Trace File';
 alter system dump datafile &&f block &&b;
 pause
 clear screen
-select col
-from   external (
-      ( col varchar2(4000) )
-      type oracle_loader
-      default directory tracedir
-      access parameters
-      ( records delimited by newline
-        nobadfile
-        nologfile
-        nodiscardfile
-       )
-       location ( '&&fname' )
-reject limit unlimited ) ext
-where substr(col,1,3) in (
+select payload
+from   v$diag_trace_file_contents
+where trace_filename = '&&fname'
+and substr(payload,1,3) in (
 'blo',
 'tab',
 'tl:',

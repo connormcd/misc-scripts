@@ -158,20 +158,9 @@ set lines 300
 set feedback off
 set serverout on
 set termout on
-begin 
-  dbms_output.put_line(
-'SQL> select banner from v$version;
-
-BANNER
-----------------------------------------------------------
-Oracle Database 23ai Enterprise Edition Release 23.0.0.0.0
-
-1 row selected.
-');
-end;
-/
 set feedback on
 set echo on
+select banner from v$version;
 pause
 create table t1 as 
 select 
@@ -224,20 +213,10 @@ set lines 300
 set feedback off
 set serverout on
 set termout on
-begin 
-  dbms_output.put_line(
-'SQL> select banner from v$version;
 
-BANNER
-----------------------------------------------------------
-Oracle Database 23ai Enterprise Edition Release 23.0.0.0.0
-
-1 row selected.
-');
-end;
-/
 set feedback on
 set echo on
+select banner from v$version;
 pause
 alter session set nls_date_format = 'dd/mm/yyyy hh24:mi:ss';
 pause

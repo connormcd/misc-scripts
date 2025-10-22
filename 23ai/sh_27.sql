@@ -105,9 +105,113 @@ with names (col) as (
     ('BURGIO'),
     ('BURROWS'),
     ('BYRES') )
-select a.col, b.col, fuzzy_match(levenshtein, a.col, b.col, unscaled) as lev
+select a.col, b.col, fuzzy_match(levenshtein, a.col, b.col, unscaled) as fuzz
 from names a, names b
 where a.col != b.col
+
+pause
+/
+pause
+
+clear screen
+with names (col) as ( 
+    values 
+    ('BARACK'),
+    ('BARASH'),
+    ('BARAYUGA'),
+    ('BAROWSKI'),
+    ('BERCH'),
+    ('BIRES'),
+    ('BORCKY'),
+    ('BORREGO'),
+    ('BOURKE'),
+    ('BRASKI'),
+    ('BREEZEE'),
+    ('BROCK'),
+    ('BRUCE'),
+    ('BURGIO'),
+    ('BURROWS'),
+    ('BYRES') )
+select a.col, b.col, fuzzy_match(bigram, a.col, b.col, unscaled) as fuzz
+from names a, names b
+where a.col != b.col
+order by 3 desc
+fetch first 12 rows only
+
+pause
+/
+pause
+
+clear screen
+with names (col) as ( 
+    values 
+    ('BARACK'),
+    ('BARASH'),
+    ('BARAYUGA'),
+    ('BAROWSKI'),
+    ('BERCH'),
+    ('BIRES'),
+    ('BORCKY'),
+    ('BORREGO'),
+    ('BOURKE'),
+    ('BRASKI'),
+    ('BREEZEE'),
+    ('BROCK'),
+    ('BRUCE'),
+    ('BURGIO'),
+    ('BURROWS'),
+    ('BYRES') )
+select a.col, b.col, fuzzy_match(trigram, a.col, b.col, unscaled) as fuzz
+from names a, names b
+where a.col != b.col
+order by 3 desc
+fetch first 12 rows only
+
+pause
+/
+pause
+clear screen
+with names (col) as ( 
+    values 
+    ('BARACK'),
+    ('BARASH'),
+    ('BERCH'),
+    ('BARACK OBAMA'),
+    ('BORCKY'),
+    ('BORREGO'),
+    ('BOURKE'),
+    ('BURKE'),
+    ('BROCK'),
+    ('BROCKFORD')
+    )
+select a.col, b.col, fuzzy_match(whole_word_match, a.col, b.col, unscaled) as fuzz
+from names a, names b
+where a.col != b.col
+order by 3 desc
+fetch first 12 rows only
+
+pause
+/
+pause
+clear screen
+with names (col) as ( 
+    values 
+    ('BARACK'),
+    ('BARASH'),
+    ('BERCH'),
+    ('BARACK OBAMA'),
+    ('BORCKY'),
+    ('BORREGO'),
+    ('BOURKE'),
+    ('BURKE'),
+    ('BROCK'),
+    ('BROCKFORD')
+    )
+select a.col, b.col, fuzzy_match(whole_word_match, a.col, b.col, edit_tolerance 70) as lev
+from names a, names b
+where a.col != b.col
+order by 3 desc
+fetch first 12 rows only
 
 pause
 /

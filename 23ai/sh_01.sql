@@ -46,16 +46,16 @@ pause
 select 1;
 pause
 select seq.nextval;
-pause
+pause Done
 set echo off
 clear screen
-pro SQL> select sysdate from dual;
-pro select sysdate from dual
-pro                     *
-pro ERROR at line 1:
-pro ORA-00942: table or view does not exist
-pro SQL> 
-pause
-set echo on
-select sysdate from dual;
-pause Done
+--pro SQL> select sysdate from dual;
+--pro select sysdate from dual
+--pro                     *
+--pro ERROR at line 1:
+--pro ORA-00942: table or view does not exist
+--pro SQL> 
+--pause
+--set echo on
+--select sysdate from dual;
+--pause Done

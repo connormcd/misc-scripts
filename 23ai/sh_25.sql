@@ -9,6 +9,7 @@ alter session set read_only = false;
 drop domain amex ;
 @drop credit_card
 @drop emp2
+@drop t
 drop table hr.new_table purge;
 alter session set group_by_position_enabled = false;
 @drop t
@@ -41,8 +42,81 @@ clear screen
 -- did somebody say XMLDB? :-)
 --
 pause
+--
+--  19c
+--
+--
+-- SQL> create table t ( j json);
+-- create table t ( j json)
+--                    *
+-- ERROR at line 1:
+-- ORA-00902: invalid datatype
+-- 
+pause
+--
+--  21c
+--
+--
+--
+-- SQL> create table t ( j json);
+--
+-- Table created.
+-- 
+pause
+clear screen
+create table t ( j json );
+pause
+insert into t
+values ('{"larry":"ellison"}'),
+       ('[{"larry":"ellison"},{"safra":"catz"},{"connor":"mcdonald"}]'),
+       ('[3,1,4,1,5,9,2,7]');
+pause       
+insert into t
+values ('{}'),
+       ('100');
+pause
+clear screen
+alter table t
+  modify j json ( limit 50 );
+pause
+insert into t
+values ('[{"larry":"ellison"},{"safra":"catz"},{"connor":"mcdonald"}]');
+pause
+delete t;
+pause
+clear screen
+alter table t
+  modify j json ( object);
+pause
+insert into t
+values ('{"larry":"ellison"}');
+pause
+insert into t
+values ('[{"larry":"ellison"},{"safra":"catz"}]');
+pause
+roll;
+pause
+clear screen
+alter table t
+  modify j json (array);
+pause
+insert into t
+values ('[3,1,4,1,5,9,2,7]');
+pause
+roll;
+pause
+clear screen
+alter table t
+  modify j json (array (number,*,sort));
+pause
+insert into t
+values ('[3,1,4,1,5,9,2,7]');
+pause
+select * from t;
+pause
 set echo on
 set termout on
+clear screen
 create table cars (
   id         number,
   json_data  json validate '{

@@ -57,10 +57,12 @@ declare
    l_script clob ;
 begin
    l_script := q'~
-       var db = require("mle-js-oracledb");
-       var sql = "select empno, ename from scott.emp" ;
-       var result = db.defaultConnection().execute(sql);
-       console.log(result.rows) ~';
+    const sql = `select empno,ename from scott.emp` ;
+    const result = session.execute(sql);
+    for (const row of result.rows) {
+      console.log(JSON.stringify(row))
+    }
+       ~';
    dbms_mle.eval(l_ctx, 'JAVASCRIPT', l_script);
    dbms_mle.drop_context(l_ctx);
 end;
@@ -114,16 +116,17 @@ clear screen
 create or replace 
 mle module mle_exifr language javascript as
 
-  const { default: exifr } = await import ('exifr');
+import exifr from 'exifr';
 
-  export async function GetExif() {
+export async function GetExif() {
 
   const query = "SELECT B FROM IMAGES";
-  const options = { fetchInfo: { B: { type: oracledb.UINT8ARRAY } } };
+  const options = { 
+    fetchInfo: { B: { type: oracledb.UINT8ARRAY } }
+  };
+  
   const queryResult = session.execute(query, [], options);
-
   const output = await exifr.parse(queryResult.rows[0].B.buffer);
-  //console.log("Camera:", JSON.stringify(output));
 
   return JSON.stringify(output);
 }

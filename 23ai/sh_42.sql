@@ -66,6 +66,16 @@ pause
 select * from user_triggers
 where table_name = 'T';
 pause
+select * from user_synonyms
+where synonym_name = 'T';
+pause
+select * from user_policies
+where object_name = 'T';
+pause
+select * from dba_sql_patches
+where sql_text like 'update%';
+pause
+clear screen
 update t set col = col + 1
 where pk = 1;
 --

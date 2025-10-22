@@ -4,6 +4,7 @@ set termout off
 conn dbdemo/dbdemo@db23
 set termout off
 alter session set session_exit_on_package_state_error = false;
+conn dbdemo/dbdemo@db19
 clear screen
 set termout on
 set echo off
@@ -86,6 +87,7 @@ end;
 -- where is my output????
 --
 pause
+conn dbdemo/dbdemo@db23
 clear screen
 create or replace
 package body mypkg is

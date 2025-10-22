@@ -1,5 +1,6 @@
 set termout off
 conn dbdemo/dbdemo@db23
+conn dbdemo/dbdemo@db19
 set termout off
 clear screen
 set termout on
@@ -34,6 +35,7 @@ end;
 -- back to session 1
 --
 pause
+conn dbdemo/dbdemo@db23
 clear screen
 create or replace
 package body mypkg is

@@ -91,20 +91,12 @@ set lines 300
 set feedback off
 set serverout on
 set termout on
-begin 
-  dbms_output.put_line(
-'SQL> select banner from v$version;
 
-BANNER
-----------------------------------------------------------
-Oracle Database 23ai Enterprise Edition Release 23.0.0.0.0
-
-1 row selected.
-');
-end;
-/
 set feedback on
 set echo on
+select banner from v$version;
+pause
+
 create materialized view MV
 refresh complete
 enable query rewrite as

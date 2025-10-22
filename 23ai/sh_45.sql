@@ -116,7 +116,7 @@ pro |  Connection Pool
 pro |
 pro |  Session      Status
 pro |  =======      ==========
-pro |  01           In-Use
+pro |  01           In-Use  (Connor)
 pro |  02           Available
 pro |  03           Available
 pro |  04           Available
@@ -128,10 +128,22 @@ pro |  Connection Pool
 pro |
 pro |  Session      Status
 pro |  =======      ==========
-pro |  01           In-Use
-pro |  02           In-Use
-pro |  03           In-Use
-pro |  04           In-Use
+pro |  01           In-Use  (Connor)
+pro |  02           In-Use  (Suzy)
+pro |  03           Available
+pro |  04           Available
+pro |
+pause
+clear screen
+pro |
+pro |  Connection Pool 
+pro |
+pro |  Session      Status
+pro |  =======      ==========
+pro |  01           In-Use (Connor)
+pro |  02           In-Use (Suzy)
+pro |  03           In-Use (Mike)
+pro |  04           In-Use (Mary)
 pro |
 pause
 set echo on

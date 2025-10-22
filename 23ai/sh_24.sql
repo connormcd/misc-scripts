@@ -26,9 +26,17 @@ end;
 @drop t3
 @drop t4
 @drop t5
+undefine prefix
+
+col pfx new_value prefix
+select substr(name,1,instr(name,'/',-1)-1) pfx
+from v$datafile
+where rownum = 1;
+
 drop tablespace frag_ts including contents and datafiles;
 create bigfile tablespace frag_ts 
-datafile '/u01/app/oracle/oradata/DB237/db237pdb1/frag_ts.dbf' size 100m;
+datafile '&&prefix/frag_ts.dbf' size 100m;
+undefine prefix
 create table t5 tablespace frag_ts
 as select d.* from dba_objects d;
 create table t4 tablespace frag_ts as select * from t5;
@@ -72,12 +80,13 @@ where  tablespace_name = 'FRAG_TS';
 pause
 clear screen
 set serverout on
-execute dbms_space.tablespace_shrink('FRAG_TS');
 execute dbms_space.shrink_tablespace('FRAG_TS');
 pause
 select tablespace_name, round(bytes/1024/1024) mb
 from   dba_data_files
 where  tablespace_name = 'FRAG_TS';
+pause
+execute dbms_space.tablespace_shrink('FRAG_TS');
 
 pause Done
 

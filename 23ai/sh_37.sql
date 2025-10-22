@@ -10,10 +10,17 @@ set termout off
 @drop trivia
 @drop trivia_chunked
 @drop trivia_pdf
+@drop pics
+@drop pics_vec
+col dist format 99.999999999999
+create or replace
+directory JSONDOCS as '/home/oracle/json';
 
 alter system flush shared_pool;
 drop table if exists trivia_vec purge;
 exec dbms_vector.drop_onnx_model(model_name=>'DOC_MODEL',force=>true);
+exec dbms_vector.drop_onnx_model(model_name=>'IMG_MODEL',force=>true);
+
 col model_name format a20
 col algorithm format a15
 col facts format a70 trunc
@@ -512,5 +519,41 @@ select pk, facts
 from trivia_vec
 order by vector_distance(vec , vector_embedding(doc_model using 'fastest running dog' as data), cosine) 
 fetch first 4 rows only;
+pause
+clear screen
+begin
+  dbms_vector.load_onnx_model(
+     'MODELS', 
+     'clip-vit-large-patch14_img.onnx', 
+     'IMG_MODEL', 
+     JSON('{"function":"embedding",
+            "embeddingOutput":"embedding", 
+            "input": {"input": ["DATA"]}}'));
+end;
+/
+pause
+host start sample_pics.jpg
+pause
+clear screen
+create table pics ( pk int, n varchar2(20), b blob);
+insert into pics values (1, 'Connor', to_blob(bfilename('JSONDOCS','connor.jpg')));
+insert into pics values (2, 'Dog at Beach', to_blob(bfilename('JSONDOCS','dog_beach.jpg')));
+insert into pics values (3, 'Dog at Beach 2', to_blob(bfilename('JSONDOCS','dog_beach2.jpg')));
+insert into pics values (4, 'Dog on Couch', to_blob(bfilename('JSONDOCS','dog_couch.jpg')));
+insert into pics values (5, 'Dog on Couch 2', to_blob(bfilename('JSONDOCS','dog_couch2.jpg')));
+insert into pics values (6, 'Birds', to_blob(bfilename('JSONDOCS','birds.jpg')));
+pause
+commit;
+clear screen
+create table pics_vec as
+select pk,n,vector_embedding(IMG_MODEL using b as data) as vec
+from pics;
+pause
+select a.pk, b.pk, a.n, b.n, vector_distance(a.vec, b.vec , cosine)  dist
+from pics_vec a, pics_vec b
+where a.pk < b.pk
+order by 5;
+
 pause Done
+
 

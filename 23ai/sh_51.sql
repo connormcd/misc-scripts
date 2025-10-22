@@ -83,22 +83,16 @@ drop table t purge;
 create table t ( x int, y as ( my_virtual_col(x)) materialized immutable);
 pause
 insert into t(x) 
-values (2),(3),(4),(5),(6);
+values (2),(3),(4);
 pause
 select * from t;
 pause
 update t set x = x + 1
-where x = 6;
+where x = 3;
 pause
-create or replace
-function my_virtual_col(n number) return number deterministic is
-begin
-  return n;
-end;
+alter table t add created_on as ( sysdate ) materialized immutable
+.
+pause
 /
-pause
-update t set x = x + 1
-where x = 6;
-commit;
 
 pause Done

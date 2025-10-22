@@ -43,15 +43,14 @@ prompt |
 prompt |                                                                           
 prompt |  Customer - Why can't the database be just like Google?                                                                          
 prompt |                                                                           
-prompt |                                                                           
+prompt |  
+pause
 set echo on
 clear screen
 set echo on
 set termout on
 exec dbms_search.create_index('BIG_SEARCH');
-pause
 exec dbms_search.add_source('BIG_SEARCH','SCOTT.EMP');
-pause
 exec dbms_search.add_source('BIG_SEARCH','SCOTT.DEPT');
 pause
 set lines 60
