@@ -63,7 +63,7 @@ select empno, ename,hiredate
 from t;
 pause
 clear screen
-conn system/admin@db23
+conn sys/SYSTEM_PASSWORD@db23
 pause
 set echo off
 column event_timestamp format a30

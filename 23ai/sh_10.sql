@@ -81,7 +81,7 @@ pause
 roll;
 pause
 clear screen
-conn system/admin@db23
+conn sys/SYSTEM_PASSWORD@db23
 pause
 alter system set priority_txns_high_wait_target = 6;
 pause

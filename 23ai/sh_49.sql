@@ -39,7 +39,7 @@ select object_id
 from   user_objects
 where  object_name = 'T_PK';
 pause
-conn sys/admin@db23 as sysdba
+conn sys/SYS_PASSWORD@db23 as sysdba
 col name format a40
 col value format a20
 select

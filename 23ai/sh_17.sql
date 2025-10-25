@@ -3,7 +3,7 @@ clear screen
 set termout off
 conn dbdemo/dbdemo@db23
 set termout off
-conn sys/admin@db23 as sysdba
+conn sys/SYS_PASSWORD@db23 as sysdba
 set termout off
 alter system set max_columns = standard scope=spfile;
 shutdown immediate
@@ -76,7 +76,7 @@ alter table bigcol add newcol date;
 pause
 drop table bigcol purge;
 clear screen
-conn sys/admin@db23 as sysdba
+conn sys/SYS_PASSWORD@db23 as sysdba
 show parameter max_columns
 pause
 alter system set max_columns = extended scope=spfile;

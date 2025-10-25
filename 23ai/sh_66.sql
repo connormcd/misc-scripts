@@ -1,12 +1,12 @@
 clear screen
 @clean
 set termout off
-conn system/admin@db19 
+conn sys/SYSTEM_PASSWORD@db19 
 set termout off
 grant select on scott.emp to public;
 drop user redact_admin cascade;
 drop user redact_user  cascade;
-conn system/admin@db23 
+conn sys/SYSTEM_PASSWORD@db23 
 set termout off
 grant select on scott.emp to public;
 drop user redact_admin cascade;
@@ -31,7 +31,7 @@ clear screen
 conn dbdemo/dbdemo@db19
 pause
 clear screen
-conn system/admin@db19 
+conn sys/SYSTEM_PASSWORD@db19 
 create user redact_admin identified by redact_admin;
 grant resource, connect, create view to redact_admin;
 alter user redact_admin quota 100m on users;
@@ -41,7 +41,7 @@ grant create session to redact_user;
 pause
 grant execute on dbms_redact to redact_admin;
 pause
-conn sys/admin@db19 as sysdba
+conn sys/SYS_PASSWORD@db19 as sysdba
 grant execute on dbms_redact to redact_admin;
 pause
 clear screen
@@ -141,7 +141,7 @@ from redact_admin.emp
 order by 1;
 pause
 clear screen
-conn system/admin@db23
+conn sys/SYSTEM_PASSWORD@db23
 create user redact_admin identified by redact_admin;
 grant db_developer_role to redact_admin;
 alter user redact_admin quota 100m on users;

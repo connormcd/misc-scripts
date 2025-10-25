@@ -1,7 +1,7 @@
 clear screen
 @clean
 set termout off
-conn sys/admin@db23 as sysdba
+conn sys/SYS_PASSWORD@db23 as sysdba
 set termout off
 exec dbms_sql_firewall.enable;
 exec dbms_sql_firewall.disable_allow_list ('SCOTT');
@@ -25,14 +25,14 @@ prompt |
 pause
 clear screen
 set echo on
-conn system/admin@db23
+conn sys/SYSTEM_PASSWORD@db23
 pause
 exec dbms_sql_firewall.enable;
 pause
 grant sql_firewall_admin to system;
 pause
 clear screen
-conn system/admin@db23
+conn sys/SYSTEM_PASSWORD@db23
 pause
 exec dbms_sql_firewall.enable;
 pause
@@ -55,7 +55,7 @@ from emp
 group by deptno;
 pause
 clear screen
-conn system/admin@db23
+conn sys/SYSTEM_PASSWORD@db23
 pause
 exec dbms_sql_firewall.stop_capture('SCOTT');
 pause
@@ -102,7 +102,7 @@ select * from dept;
 pause
 select max(sal) from emp;
 pause
-conn sys/admin@db23 as sysdba
+conn sys/SYS_PASSWORD@db23 as sysdba
 exec dbms_sql_firewall.disable_allow_list ('SCOTT');
 exec  dbms_sql_firewall.drop_allow_list ('SCOTT');
 exec dbms_sql_firewall.disable;

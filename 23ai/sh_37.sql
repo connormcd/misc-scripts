@@ -1,7 +1,7 @@
 clear screen
 @clean
 set termout off
-conn sys/admin@db23root as sysdba
+conn sys/SYS_PASSWORD@db23root as sysdba
 set termout off
 alter system checkpoint global;
 startup force
