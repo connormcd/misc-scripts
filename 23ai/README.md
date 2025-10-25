@@ -21,6 +21,8 @@ In each database, you need
 - The HR sample schema is created in each database  (See https://github.com/oracle-samples/db-sample-schemas)
 - The SH sample schema is created in each database.  (See https://github.com/oracle-samples/db-sample-schemas)
 - The SCOTT sample schema is created in each database. (You can run demobld.sql from this repo)
+- 'max_string_size' must be set to 'extended' in each database. (See https://connor-mcdonald.com/2015/09/11/longer-strings-in-12c/)
+- APEX 24 or higher must be installed in each database.  (ORDS is not required, we only use APEX from within command line)
 
 Connectivity
 ============
