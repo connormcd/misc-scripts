@@ -8,10 +8,12 @@ NO WARRANTY OR LIABILITY ETC ETC ETC. SEE THE LICENSE.
 Setup
 =====
 
-Assumes you have the following:
+Clone this repo (you only need the '23ai' folder) onto the client machine you are doing to run these demos from.
 
-1) A running version 23ai / 26ai database with full privs to it (SYS, SYSTEM access)
-2) A running version 19c / 21c database with full privs to it (SYS, SYSTEM access)
+You will also need the following:
+
+1) A running version 23ai / 26ai database with full access rights to it (ie SYS, SYSTEM access)
+2) A running version 19c / 21c database with full access rights to it (SYS, SYSTEM access)
 
 In each database, you need
 
