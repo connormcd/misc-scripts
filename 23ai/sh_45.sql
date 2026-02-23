@@ -26,6 +26,7 @@ alter table products modify total_sold not reservable;
 @drop orderitems
 @drop t1
 @drop t2
+@longdate
 col journal new_value journal_table
 col journal format a30
 set verify off
@@ -140,10 +141,10 @@ pro |  Connection Pool
 pro |
 pro |  Session      Status
 pro |  =======      ==========
-pro |  01           In-Use (Connor)
-pro |  02           In-Use (Suzy)
-pro |  03           In-Use (Mike)
-pro |  04           In-Use (Mary)
+pro |  01           In-Use  (Connor)
+pro |  02           In-Use  (Suzy)
+pro |  03           In-Use  (Mike)
+pro |  04           In-Use  (Mary)
 pro |
 pause
 set echo on

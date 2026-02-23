@@ -21,7 +21,7 @@ prompt |
 pause
 clear screen
 set echo on
-conn sys/SYS_PASSWORD@db23 as sysdba
+conn sys/admin@db23 as sysdba
 pause
 create user local_dba identified by local_dba;
 pause
@@ -44,14 +44,14 @@ delete from scott.emp;
 pause
 
 clear screen
-conn sys/SYSTEM_PASSWORD@db23
+conn system/admin@db23
 pause
 delete from scott.emp;
 pause
 rollback;
 pause
 clear screen
-conn sys/SYS_PASSWORD@db23 as sysdba
+conn sys/admin@db23 as sysdba
 pause
 alter pluggable database &&pdb open read write;
 pause

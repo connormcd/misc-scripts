@@ -1,7 +1,7 @@
 clear screen
 @clean
 set termout off
-conn sys/SYS_PASSWORD@db23 as sysdba
+conn sys/admin@db23 as sysdba
 set termout off
 grant create mle to dbdemo;
 grant EXECUTE DYNAMIC MLE to dbdemo;

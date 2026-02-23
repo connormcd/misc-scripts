@@ -77,9 +77,12 @@ pause
 select * from emp;
 roll;
 pause
+set echo off
+alter table dept add mgr_bonus int;
 clear screen
+set echo on
 update emp e
-set sal = sal + d.deptno
+set sal = sal + d.mgr_bonus
 #pause
 from dept d
 where d.deptno = e.deptno
@@ -89,3 +92,6 @@ pause
 roll;
 
 pause Done
+set echo off
+alter table dept drop column mgr_bonus;
+

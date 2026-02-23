@@ -1,33 +1,11 @@
 clear screen
-@clean
-set termout off
-conn dbdemo/dbdemo@db23
-set termout off
-clear screen
-set termout on
+conn scott/tiger@db23
 set echo on
-conn daily_pay_run/daily_pay_run@db23
 pause
-select *
-from scott.emp
-where empno = 7369
-for update nowait
-
-pause
-/
+select deptno from dept;
+select job,sal from bonus;
+select losal,hisal from salgrade;
+select sys_context('userenv','sid');
 rem
 rem back to session 1
 rem
-pause
-
-clear screen
-conn daily_pay_run/daily_pay_run@db23
-pause
-alter session set txn_priority = high;
-pause
-set timing on
-update scott.emp
-set sal = sal + 10
-where empno = 7369;
-commit;
-

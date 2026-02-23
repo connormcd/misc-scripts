@@ -29,11 +29,12 @@ clear screen
 set echo on
 clear screen
 select sys_guid();
-select sys_guid();
 pause
+select sys_guid() connect by level <= 5;
+pause
+clear screen
 conn dbdemo/dbdemo@db19
-select sys_guid() from dual;
-select sys_guid() from dual;
+select sys_guid() from dual connect by level <= 8;
 pause
 clear screen
 conn dbdemo/dbdemo@db23

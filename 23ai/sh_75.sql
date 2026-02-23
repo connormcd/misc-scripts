@@ -137,9 +137,4 @@ pause
 select empno, sal, sys_row_etag(empno,ename,job,mgr,hiredate,deptno,sal,comm)
 from myemp
 where empno = 7369;
-pause
-select empno, sal, sys_row_etag(*)
-from myemp
-where empno = 7369;
-
 pause Done

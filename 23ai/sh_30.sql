@@ -63,7 +63,7 @@ select empno, ename,hiredate
 from t;
 pause
 clear screen
-conn sys/SYSTEM_PASSWORD@db23
+conn system/admin@db23
 pause
 set echo off
 column event_timestamp format a30
@@ -82,8 +82,6 @@ from   unified_audit_trail
 where  object_name = 'T'
 and   object_schema = 'SCOTT'
 order by event_timestamp;
-pause
+pause Done
 noaudit policy col_level_audit;
 drop audit policy col_level_audit;
-
-pause Done

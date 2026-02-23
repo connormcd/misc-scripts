@@ -106,12 +106,21 @@ set lines 300
 set feedback off
 set serverout on
 set termout on
+begin 
+  dbms_output.put_line(
+'SQL> select banner from v$version;
 
+BANNER
+----------------------------------------------------------
+Oracle Database 26ai Enterprise Edition Release 23.26.0.0.0
+
+1 row selected.
+');
+end;
+/
 set feedback on
 set echo on
-select banner from v$version;
 pause
-
 declare
   p_url            varchar2(100) := 'https://www.oracle.com';
   l_http_request   utl_http.req;

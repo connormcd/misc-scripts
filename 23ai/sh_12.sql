@@ -48,7 +48,7 @@ prompt |
 pause
 set echo on
 clear screen
-conn sys/SYS_PASSWORD@db23 as sysdba
+conn sys/admin@db23 as sysdba
 alter system set sql_history_enabled = true scope=spfile;
 pause
 shutdown immediate
@@ -83,4 +83,54 @@ pause
 select distinct sid 
 from v$sql_history;
 
+pause
+clear screen
+conn scott/tiger@db23
+set echo on
+pause
+select max(deptno) from dept;
+select * from bonus;
+select count(*) from salgrade;
+select sys_context('userenv','sid');
+rem
+rem over to session 2 (12a)
+rem
+pause
+set lines 120
+col sql_text format a60 trunc
+col err format 9999
+clear screen
+select 
+  sid,
+  sql_id, 
+  to_char(last_active_time,'HH24:MI:SS') last_run,
+  replace(sql_text,chr(10),' ') sql_text
+from v$sql_history;
+pause
+clear screen
+conn dbdemo/dbdemo@db23
+pause
+declare
+  x int;
+begin
+  for i in 1 .. 100 loop
+    execute immediate 
+      'select max(empno) from emp' into x;
+  end loop;
+end;
+/
+pause
+set lines 120
+col sql_text format a60 trunc
+col err format 9999
+clear screen
+select 
+  sid,
+  sql_id, 
+  to_char(last_active_time,'HH24:MI:SS') last_run,
+  replace(sql_text,chr(10),' ') sql_text
+from v$sql_history
+.
+pause
+/
 pause Done

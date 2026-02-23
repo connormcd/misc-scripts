@@ -4,8 +4,12 @@ set termout off
 conn dbdemo/dbdemo@db23
 clear screen
 set termout off
+set lines 150
 col edition_name format a8
 col owner format a10
+col created format a12
+col last_ddl_time format a12
+col status format a8
 @drop t
 clear screen
 create table t as
@@ -160,6 +164,19 @@ from t
 #pause
 GROUP BY ALL
 
+pause
+/
+
+pause
+clear screen
+select deptno, comm+sum(sal)
+from emp
+group by deptno,comm;
+pause
+select deptno, comm+sum(sal)
+from emp
+group by all
+.
 pause
 /
 

@@ -10,7 +10,7 @@ prompt Prepping....
 set termout off
 conn dbdemo/dbdemo@db19
 set termout off
-host del load50.sql
+host del instantclient_26\sql\load50.sql
 set pages 0
 set feedback off
 set termout off
@@ -23,7 +23,7 @@ where (table_name,num_rows) in
   ('SERVICE_CALLS',3474)
 )
 
-spool load50.sql
+spool instantclient_26\sql\load50.sql
 /
 spool off
 @load50.sql
@@ -31,7 +31,7 @@ set pages 99
 set feedback on
 conn dbdemo/dbdemo@db23
 set termout off
-host del load50b.sql
+host del instantclient_26\sql\load50b.sql
 set pages 0
 set feedback off
 set termout off
@@ -44,7 +44,7 @@ where (table_name,num_rows) in
   ('SERVICE_CALLS',3474)
 )
 
-spool load50b.sql
+spool instantclient_26\sql\load50b.sql
 /
 spool off
 @load50b.sql
@@ -158,14 +158,9 @@ declare
         ,'SESSION MURDER' -- 81
         ,'TRUNCATE' -- 82
         ,'GRAPHQL' -- 83
-        ,'WITH WITH' -- 84
-        ,'JOIN TO ONE' -- 85
-        ,'ITS ABOUT TIME' -- 86
-        ,'DOMAIN ENUM'   -- 87
-        ,'LOB NETWORK'   -- 88
         );
   v varchar2(32000);        
-  l_rows int := 22;
+  l_rows int := 21;
   l_cols int := ceil(s.count/l_rows);
   l_idx  int;
   l_pad  sys.odcinumberlist := sys.odcinumberlist();
@@ -215,295 +210,3 @@ prompt |
 prompt |    
 prompt |    
 pause
-set termout off
-clear screen
-conn dbdemo/dbdemo@db23
-set termout off
-set timing off
-set time off
-set pages 999
-set lines 200
-set long 20000
-set longchunksize 20000
-set termout on
-set serverout on
-set echo off
-clear screen
-prompt |
-prompt |
-prompt |     _   _  ____       _____ _      _____ _____  ______  _____     _   _   _ 
-prompt |    | \ | |/ __ \     / ____| |    |_   _|  __ \|  ____|/ ____|   | | | | | |
-prompt |    |  \| | |  | |   | (___ | |      | | | |  | | |__  | (___     | | | | | |
-prompt |    | . ` | |  | |    \___ \| |      | | | |  | |  __|  \___ \    | | | | | |
-prompt |    | |\  | |__| |    ____) | |____ _| |_| |__| | |____ ____) |   |_| |_| |_|
-prompt |    |_| \_|\____/    |_____/|______|_____|_____/|______|_____/    (_) (_) (_)
-prompt |                                                                             
-prompt |
-pause
-clear screen
-prompt | 
-prompt | 
-prompt |   _   _ ________          __     ______ ______       _______ _    _ _____  ______  _____ 
-prompt |  | \ | |  ____\ \        / /    |  ____|  ____|   /\|__   __| |  | |  __ \|  ____|/ ____|
-prompt |  |  \| | |__   \ \  /\  / /     | |__  | |__     /  \  | |  | |  | | |__) | |__  | (___  
-prompt |  | . ` |  __|   \ \/  \/ /      |  __| |  __|   / /\ \ | |  | |  | |  _  /|  __|  \___ \ 
-prompt |  | |\  | |____   \  /\  /       | |    | |____ / ____ \| |  | |__| | | \ \| |____ ____) |
-prompt |  |_| \_|______|   \/  \/        |_|    |______/_/    \_\_|   \____/|_|  \_\______|_____/ 
-prompt |                                                                                          
-prompt |                                                                                          
-prompt |                                                                                         
-prompt |                                                                                         
-pause
-clear screen
-prompt |  
-prompt |  SAFE HARBOR
-prompt |  
-prompt |  The following is intended to outline our general product direction.
-prompt |  It is intended for information purposes only, and may not be incorporated into any contract. 
-prompt |  It is not a commitment to deliver any material, code, or functionality, and should not 
-prompt |  be relied upon in making purchasing decisions. The development, release, timing, and 
-prompt |  pricing of any features or functionality described for Oracle’s products may change 
-prompt |  and remains at the sole discretion of Oracle Corporation.
-prompt |  
-prompt |    ie, if you can't find it in the docs, you're on your own ! :-)
-prompt |  
-pause
-clear screen
-prompt |  
-prompt |  
-prompt |    _      ______ _______ _____     _____  ____     _   _   _   _ 
-prompt |   | |    |  ____|__   __/ ____|   / ____|/ __ \   | | | | | | | |
-prompt |   | |    | |__     | | | (___    | |  __| |  | |  | | | | | | | |
-prompt |   | |    |  __|    | |  \___ \   | | |_ | |  | |  | | | | | | | |
-prompt |   | |____| |____   | |  ____) |  | |__| | |__| |  |_| |_| |_| |_|
-prompt |   |______|______|  |_| |_____/    \_____|\____/   (_) (_) (_) (_)
-prompt |                                                                  
-prompt |  
-prompt |  
-pause
-clear screen
-set heading off
-set heading on
-REM @sh_sun
-REM pause
-
-@menu.sql
-@menu.sql
-@menu.sql
-@menu.sql
-@menu.sql
-@menu.sql
-@menu.sql
-@menu.sql
-@menu.sql
-@menu.sql
-@menu.sql
-@menu.sql
-@menu.sql
-@menu.sql
-@menu.sql
-@menu.sql
-@menu.sql
-@menu.sql
-@menu.sql
-@menu.sql
-@menu.sql
-@menu.sql
-@menu.sql
-@menu.sql
-@menu.sql
-@menu.sql
-@menu.sql
-@menu.sql
-@menu.sql
-@menu.sql
-@menu.sql
-@menu.sql
-@menu.sql
-@menu.sql
-@menu.sql
-@menu.sql
-@menu.sql
-@menu.sql
-@menu.sql
-@menu.sql
-@menu.sql
-@menu.sql
-@menu.sql
-@menu.sql
-@menu.sql
-@menu.sql
-@menu.sql
-@menu.sql
-@menu.sql
-@menu.sql
-@menu.sql
-@menu.sql
-@menu.sql
-@menu.sql
-@menu.sql
-@menu.sql
-@menu.sql
-@menu.sql
-@menu.sql
-@menu.sql
-@menu.sql
-@menu.sql
-@menu.sql
-@menu.sql
-@menu.sql
-@menu.sql
-@menu.sql
-@menu.sql
-@menu.sql
-@menu.sql
-@menu.sql
-@menu.sql
-@menu.sql
-@menu.sql
-@menu.sql
-@menu.sql
-@menu.sql
-@menu.sql
-@menu.sql
-@menu.sql
-@menu.sql
-@menu.sql
-@menu.sql
-@menu.sql
-@menu.sql
-@menu.sql
-@menu.sql
-@menu.sql
-@menu.sql
-@menu.sql
-@menu.sql
-@menu.sql
-@menu.sql
-@menu.sql
-@menu.sql
-@menu.sql
-@menu.sql
-@menu.sql
-@menu.sql
-@menu.sql
-@menu.sql
-@menu.sql
-@menu.sql
-@menu.sql
-@menu.sql
-@menu.sql
-@menu.sql
-@menu.sql
-@menu.sql
-@menu.sql
-@menu.sql
-@menu.sql
-@menu.sql
-@menu.sql
-@menu.sql
-@menu.sql
-@menu.sql
-@menu.sql
-@menu.sql
-@menu.sql
-@menu.sql
-@menu.sql
-@menu.sql
-@menu.sql
-@menu.sql
-@menu.sql
-@menu.sql
-@menu.sql
-@menu.sql
-@menu.sql
-@menu.sql
-@menu.sql
-@menu.sql
-@menu.sql
-@menu.sql
-@menu.sql
-@menu.sql
-@menu.sql
-@menu.sql
-@menu.sql
-@menu.sql
-@menu.sql
-@menu.sql
-@menu.sql
-@menu.sql
-@menu.sql
-@menu.sql
-@menu.sql
-@menu.sql
-@menu.sql
-@menu.sql
-@menu.sql
-@menu.sql
-@menu.sql
-@menu.sql
-@menu.sql
-@menu.sql
-@menu.sql
-@menu.sql
-@menu.sql
-@menu.sql
-@menu.sql
-@menu.sql
-@menu.sql
-@menu.sql
-@menu.sql
-@menu.sql
-@menu.sql
-@menu.sql
-@menu.sql
-@menu.sql
-@menu.sql
-@menu.sql
-@menu.sql
-@menu.sql
-@menu.sql
-@menu.sql
-@menu.sql
-@menu.sql
-@menu.sql
-@menu.sql
-@menu.sql
-@menu.sql
-@menu.sql
-@menu.sql
-@menu.sql
-@menu.sql
-@menu.sql
-@menu.sql
-@menu.sql
-@menu.sql
-@menu.sql
-@menu.sql
-@menu.sql
-@menu.sql
-@menu.sql
-@menu.sql
-@menu.sql
-@menu.sql
-@menu.sql
-@menu.sql
-@menu.sql
-@menu.sql
-@menu.sql
-@menu.sql
-@menu.sql
-@menu.sql
-@menu.sql
-@menu.sql
-@menu.sql
-@menu.sql
-@menu.sql
-@menu.sql
-@menu.sql
-@menu.sql
-@menu.sql
-@menu.sql
-@menu.sql
-@menu.sql
-@menu.sql

@@ -24,6 +24,7 @@ prompt |
 prompt |   
 pause
 set echo on
+select chr(27)||'[0m' from dual;
 clear screen
 select banner_full from v$version;
 pause
@@ -82,12 +83,21 @@ set lines 300
 set feedback off
 set serverout on
 set termout on
+begin 
+  dbms_output.put_line(
+'SQL> select banner from v$version;
 
+BANNER
+----------------------------------------------------------
+Oracle Database 26ai Enterprise Edition Release 23.26.0.0.0
+
+1 row selected.
+');
+end;
+/
 set feedback on
 set echo on
-select banner from v$version;
 pause
-
 create table emp_temp as
 select * from hr.employees
 where department_id in (10,20);
@@ -149,7 +159,7 @@ merge into emp_temp t
 using ( select * from hr.employees
         where department_id = 30 ) x
 #pause  
-on (1=0)
+on (x.employee_id = x.employee_id-1)
 #pause
 when not matched then
   insert values 
@@ -164,35 +174,6 @@ pause
 /
 pause
 roll;
-clear screen
-declare
-  l_enums  sys.odcinumberlist;
-  l_names  sys.odcivarchar2list;
-begin
-  merge into emp_temp t
-  using ( select * from hr.employees
-          where department_id = 30 ) x
-  on (1=0)
-  when not matched then
-    insert values 
-      (x.employee_id,x.first_name     
-      ,x.last_name,x.email          
-      ,x.phone_number,x.hire_date      
-      ,x.job_id,x.salary         
-      ,x.commission_pct,x.manager_id     
-      ,x.department_id  )
-  returning employee_id, last_name
-  bulk collect into l_enums, l_names;
-
-  for i in l_enums.first .. l_enums.last
-  loop
-    dbms_output.put_line('emp-'||l_enums(i)||':'||l_names(i));
-  end loop;  
-end;
-.
-pause
-/
-pause
 clear screen
 declare
   l_enums  sys.odcinumberlist;
@@ -222,5 +203,7 @@ end;
 .
 pause
 /
-
 pause Done
+clear screen
+set feedback on
+set echo on

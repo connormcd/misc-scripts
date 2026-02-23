@@ -1,7 +1,7 @@
 clear screen
 @clean
 set termout off
-conn sys/SYS_PASSWORD@db23 as sysdba
+conn sys/admin@db23 as sysdba
 @drop t
 set termout off
 clear screen

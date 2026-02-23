@@ -5,6 +5,22 @@ conn dbdemo/dbdemo@db23
 set termout off
 drop user jane_doe cascade;
 drop domain amex ;
+@drop x72910
+create table x72910 (
+  rc   number,
+  geo7 varchar2(10),
+  valf date,
+  valt date,
+  c8912 number,
+  c12   char(1),
+  xi582  number,
+  inv1724 number,
+  s1540   date,
+  sdetbud  number(1),
+  f827     varchar2(100),
+  statcode char(1));
+insert into x72910 ( rc, geo7, valf, valt, f827, c8912)
+values (17,'AUSTRALIA',sysdate-100, sysdate+100, 'xxxxxxxxxxKING', 1280000);
 @drop t1
 @drop credit_card
 @drop emp2
@@ -115,6 +131,45 @@ pause
 desc person
 pause
 set describe annotation on
+pause
 desc person
 
+pause 
+set describe annotation off
+set lines 60
+clear screen
+--
+-- Why its important
+--
+pause
+desc hr.employees
+pause
+clear screen
+--
+-- Every AI demo ....
+--
+-- "Hey AI, what does employee KING earn?"
+--
+pause
+--
+-- "I will run SELECT SALARY FROM EMPLOYEES WHERE NAME = 'KING'"
+--
+pause
+--
+-- "Gee...wow.... NOT"
+--
+pause
+clear screen
+--
+-- The REAL world...
+--
+desc x72910
+pause
+select round(C8912 / 100) salary
+from x72910
+where rc = 17
+and geo7 = 'AUSTRALIA'
+and valf < sysdate
+and valt > sysdate
+and substr(F827,11,10) = 'KING';
 pause Done

@@ -115,8 +115,8 @@ order by 1
 
 pause
 /
-alter session set nls_date_format = 'DD-MON-RR';
 pause Done
+alter session set nls_date_format = 'DD-MON-RR';
 
 
 

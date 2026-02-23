@@ -41,10 +41,44 @@ select column_name, data_default
 from   user_tab_cols
 where  data_default like '%"SEQ"%';
 pause
-set lines 70
-desc user_tab_cols
+--set lines 70
+--desc user_tab_cols
+set echo off
+set serverout on
+set feedback off
+set lines 9999
+clear screen
+begin
+dbms_output.put_line('
+SQL> desc user_tab_cols
+ Name                                Null?    Type
+ ----------------------------------- -------- ------------------------
+ TABLE_NAME                          NOT NULL VARCHAR2(128)
+ COLUMN_NAME                         NOT NULL VARCHAR2(128)
+ DATA_TYPE                                    VARCHAR2(128)
+ DATA_TYPE_MOD                                VARCHAR2(3)
+ DATA_TYPE_OWNER                              VARCHAR2(128)
+ DATA_LENGTH                         NOT NULL NUMBER
+ DATA_PRECISION                               NUMBER
+ DATA_SCALE                                   NUMBER
+ NULLABLE                                     VARCHAR2(1)
+ COLUMN_ID                                    NUMBER
+ DEFAULT_LENGTH                               NUMBER
+ DATA_DEFAULT                                 LONG                 <<=====
+ DATA_DEFAULT_VC                              VARCHAR2(4000)       <<=====
+ NUM_DISTINCT                                 NUMBER
+ LOW_VALUE                                    RAW(1000)
+ HIGH_VALUE                                   RAW(1000)
+ DENSITY                                      NUMBER
+ ...
+ ...');
+end;
+/
 pause
 set lines 200
+set feedback on
+set echo on
+clear screen
 select column_name, data_default
 from   user_tab_cols
 where  data_default_vc like '%"SEQ"%';

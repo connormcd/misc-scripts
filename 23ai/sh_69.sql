@@ -9,6 +9,7 @@ col model_name format a20
 col algorithm format a15
 col facts format a70 trunc
 set lines 200
+col value format a70 
 set pages 999
 set verify off
 set termout on

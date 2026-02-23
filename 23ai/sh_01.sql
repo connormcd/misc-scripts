@@ -46,7 +46,7 @@ pause
 select 1;
 pause
 select seq.nextval;
-pause Done
+pause 
 set echo off
 clear screen
 --pro SQL> select sysdate from dual;
@@ -59,3 +59,55 @@ clear screen
 --set echo on
 --select sysdate from dual;
 --pause Done
+
+clear screen
+set echo off
+prompt |
+prompt |  
+prompt |           ,__                                                  _,
+prompt |        \~\|  ~~---___              ,                          | \
+prompt |         |      / |   ~~~~~~~|~~~~~| ~~---,                  _/,  >
+prompt |        /~-_--__| |          |     \     / ~\~~/          /~| ||,'
+prompt |        |       /  \         |------|   {    / /~)     __-  ',|_\,
+prompt |       /       |    |~~~~~~~~|      \    \   | | '~\  |_____,|~,-'
+prompt |       |~~--__ |    |        |____  |~~~~~|--| |__ /_-'     {,~
+prompt |       |   |  ~~~|~~|        |    ~~\     /  `-' |`~ |~_____{/
+prompt |       |   |     |  '---------,      \----|   |  |  ,' ~/~\,|`
+prompt |       ',  \     |    |       |~~~~~~~|    \  | ,'~~\  /    |
+prompt |        |   \    |    |       |       |     \_-~    /`~___--\
+prompt |        ',   \  ,-----|-------+-------'_____/__----~~/      /
+prompt |         '_   '\|     |      |~~~|     |    |      _/-,~~-,/
+prompt |           \    |     |      |   |_    |    /~~|~~\    \,/
+prompt |            ~~~-'     |      |     `~~~\___|   |   |    /
+prompt |                '-,_  | _____|          |  /   | ,-'---~\
+prompt |                    `~'~  \             |  `--,~~~~-~~,  \
+prompt |                           \/~\      /~~~`---`         |  \
+prompt |                               \    /                   \  |
+prompt |                                \  |                     '\'
+prompt |                                 `~'
+pause
+clear screen
+set echo off
+prompt |  
+prompt |           ,'          ,'
+prompt |         _/'          \                     ,..-''L_
+prompt |    |--''              '-;__        |\     /      .,'
+prompt |     \                      `--.__,'_ '----     ,-'
+prompt |     `\                             \`-'\__    ,|
+prompt |  ,--;/                             /     .| ,/
+prompt |  \__                               '|    /  / 
+prompt |    ./  _-,                         _|   
+prompt |    \__/ /                        ,/        
+prompt |         |                      _/
+prompt |         |                    ,/
+prompt |         \                   /
+prompt |          |              /.-'
+prompt |           \           _/                   
+prompt |            |         /                      
+prompt |             |        |                     
+prompt |             |        |                     
+prompt |              \       /                     
+prompt |               |     |                
+prompt |               \    _|                      
+prompt |                \_,/                    
+pause Done
