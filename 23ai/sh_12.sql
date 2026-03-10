@@ -48,7 +48,7 @@ prompt |
 pause
 set echo on
 clear screen
-conn sys/admin@db23 as sysdba
+conn sys/SYS_PASSWORD@db23 as sysdba
 alter system set sql_history_enabled = true scope=spfile;
 pause
 shutdown immediate

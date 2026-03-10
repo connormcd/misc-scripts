@@ -1,7 +1,7 @@
 clear screen
 @clean
 set termout off
-conn sys/admin@db23 as sysdba
+conn sys/SYS_PASSWORD@db23 as sysdba
 set termout off
 drop table sys.migration_config purge;
 grant execute on dbms_redefinition to dbdemo;
@@ -48,7 +48,7 @@ create table T1_INT1 ( x int, c1 clob ) lob ( c1) store as securefile ;
 create table T2_INT2 ( x int, c2 clob ) lob ( c2) store as securefile ;
 pause
 clear screen
-conn sys/admin@db23 as sysdba
+conn sys/SYS_PASSWORD@db23 as sysdba
 pause
 create table migration_config 
   (ctime date, 
@@ -102,7 +102,7 @@ select
 from tmpuser.sf_migration_basicfile_migration_report;
 pause
 clear screen
-conn sys/admin@db23 as sysdba
+conn sys/SYS_PASSWORD@db23 as sysdba
 update migration_config
 set data = json_transform(data,set '$.run_type' = 'second');
 commit;

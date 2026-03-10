@@ -84,7 +84,7 @@ end;
 /
 pause
 clear screen
-conn sys/admin@db23 as sysdba
+conn sys/SYS_PASSWORD@db23 as sysdba
 pause
 select 
    object_name obj,
@@ -113,7 +113,7 @@ end;
 /
 pause
 clear screen
-conn sys/admin@db23 as sysdba
+conn sys/SYS_PASSWORD@db23 as sysdba
 pause
 select 
    object_name obj,
@@ -147,7 +147,7 @@ end;
 /
 pause
 clear screen
-conn sys/admin@db23 as sysdba
+conn sys/SYS_PASSWORD@db23 as sysdba
 pause
 select 
    object_name obj,
